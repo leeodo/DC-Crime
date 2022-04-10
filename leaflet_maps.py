@@ -13,6 +13,7 @@ dc_gpd = gpd.read_file("Wards_from_2012.geojson")
 # %%
 # Merge the two dataframes
 gdf = dc_gpd.merge(df, on="WARD", how="left").fillna(0)
+gdf["crime_rate"] = gdf["num_crimes_ward_2021"] / gdf["POP_2011_2015"]
 
 # %%
 # create a map
@@ -28,7 +29,7 @@ colormap = folium.LinearColormap(
 ).to_step(n=5)
 
 folium.GeoJson(
-    gdf[["geometry", "WARD", "num_crimes_ward_2021"]],
+    gdf[["geometry", "WARD", "num_crimes_ward_2021", "crime_rate"]],
     name="DC Crime Map 2021",
     style_function=lambda x: {
         "weight": 2,
@@ -42,8 +43,9 @@ folium.GeoJson(
         fields=[
             "WARD",
             "num_crimes_ward_2021",
+            "crime_rate",
         ],
-        aliases=["WARD", "Total Crimes 2021"],
+        aliases=["WARD", "Total Crimes 2021", "Crime Rate 2021"],
         labels=True,
         sticky=True,
         toLocaleString=True,
