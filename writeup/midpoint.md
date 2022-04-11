@@ -22,8 +22,6 @@
 
 ![wordcloud](screenshots\crime_2021.png?raw=true "Title")
 
-![](screenshots/crime_2021.png)
-
 * The second map is a prototype of choropleth map that has a drop down menu to allow user to explore the data freely. Users will be able to choose the type offense and type of map to show at will. The main purpose of this graph is to show the differences between different type of crimes.
 
 ![crimetype](screenshots/crime_type_2021.png?raw=true "Title")
