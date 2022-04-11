@@ -13,7 +13,7 @@
 ![violon](screenshots/violin.png?raw=true "Title")
 
 * A violin plot is used to visualize the distribution of the various crimes. The log10 transformed number of incidents is used for better scaling and visibility. The typical rainbow color scheme is used to distinguish the types of crimes. The viewer is able to select the type of crimes either from the violins or the legend, and see details of the crimes in the tooltips. 
-* However, its interactivity is limited to the basic plotly functionalities. Only the DC data is included due to a temporary obstacle in wrangling the VA dataset. It realized only part of the functions we expected. I'll strive to make improvements later, where adding the function to select area and year from the menu is the most crucial next step. I'll also create a button for switching between the identity and log10 measure of the y-axis and make some other improvements on the tooltips. 
+* However, its interactability is limited to the basic plotly functionalities. Only the DC data is included due to a temporary obstacle in wrangling the VA dataset. It realized only part of the functions we expected. I'll strive to make improvements later, where adding the function to select area and year from the menu is the most crucial next step. I'll also create a button for switching between the identity and log10 measure of the y-axis and make some other improvements on the tooltips. 
 
 ## Maps
 
@@ -29,11 +29,13 @@
 
 ![wordcloud](screenshots/wordcloud.png?raw=true "Title")
 
-* Description Here
+* The two wordclouds are based on types of crimes and DC Wards respectively. The size of words are positively related to the number of incidents. For both of them, the "random-dark" color is used with white background. The wordclouds aim to provide a conclusion-like visualization that the viewer would immediately have the idea about which towns are the most dangerous/ safest, or which crimes are most prevalent. 
+* It doesn't have much interactability yet besides the tooltips showing the selected name (ward or crime), and the corresponded number of incidents. I'm striving to add the ability to select area and year without diminishing the visual effects. 
 
 ## Faceted Bar Graph
 
-![faceted bar garph](screenshots/VA_violent_crime.png?raw=true "Title")
+![faceted bar graph](screenshots/VA_violent_crime.png?raw=true "Title")
 
-* The facetted bar garph shown above is an overview of the Virginia metropolitan area's 2017 violent crime rate breakdown. The crime rate gives the number of crimes matching each county/city for every 1,000 people living in that area for the year 2017. It is calculated by dividing the number of different types of violent crimes by the estimated population, and multiplying the result by 1,000.
+* The faceted bar graph shown above is an overview of the Virginia metropolitan area's 2017 violent crime rate breakdown. The crime rate gives the number of crimes matching each county/city for every 1,000 people living in that area for the year 2017. It is calculated by dividing the number of different types of violent crimes by the estimated population, and multiplying the result by 1,000.
 
+* It's worth mentioning that since the original dataset has three NAs of Murder and Nonnegligent Manslaughter in Culpeper county, city of Fairfax, and Rappahannock county, so that there has no bar showing in the their individual bar plots. 
