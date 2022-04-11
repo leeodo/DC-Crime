@@ -26,7 +26,7 @@
 ![wordcloud](screenshots/wordcloud.png?raw=true "Title")
 
 * The two wordclouds are based on types of crimes and DC Wards respectively. The size of words are positively related to the number of incidents. For both of them, the "random-dark" color is used with white background. The wordclouds aim to provide a conclusion-like visualization that the viewer would immediately have the idea about which towns are the most dangerous/ safest, or which crimes are most prevalent. 
-* It doesn't have much interactability besides the tooltips showing the selected name (ward or crime), and the corresponded number of incidents. I'm striving to add the ability to select area and year without diminishing the visual effects. 
+* It doesn't have much interactability yet besides the tooltips showing the selected name (ward or crime), and the corresponded number of incidents. I'm striving to add the ability to select area and year without diminishing the visual effects. 
 
 ## Faceted Bar Graph
 
