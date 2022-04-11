@@ -1,12 +1,19 @@
 # Mid-Point Writeup
 
-## Scatter Plot
-
-* Description Here
-
 ## Time Series Plot
 
-* Description Here
+![time series](screenshots/dc_crime_rate_timeseries.png?raw=true "Title")
+
+* The time series plot above displays total violent crime rates from 1960 to 2019 in Washington, DC, Virginal and Maryland, also known as the DMV. Violent crime refers to. In a violent crime, a victim is harmed by or threatened with violence. Violent crimes include rape and sexual assault, robbery, assault and murder.As see in the graph, Washington DC, has the highest violent crime rates when compared to neighboring states Virginia and Maryland.
+
+* This plot was created in R using the plotly package. Readers are able to interact with the plot by clicking on the graph to focuse on partical time periods or states.
+
+## Scatter Plot
+
+![scatter plot]()
+* The scatter plot above is used to visualize violent murder crime rates in District of Colombia, Maryland and Virginia from 1960 to 2019. The bullet points each represent the size of the population for each state and districts. While DC, has the smallest population, it has a the highest crime rate when compared to VA and MD. The animation presented in the scatter plot are intended to highlight the large difference in murder crime rates in each state, and how wider the gaps get over time. 
+
+* The visualization is created is are using r packages ggplot and gganimate.
 
 ## Violin Graph
 
