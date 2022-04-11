@@ -23,6 +23,11 @@
 
 ## Wordcloud
 
-![violon](screenshots/wordcloud.png?raw=true "Title")
+![wordcloud](screenshots/wordcloud.png?raw=true "Title")
 
 * Description Here
+
+## Facetted Bar Graph
+
+![facetted bar garph](screenshots/VA_violent_crime.png?raw=true "Title")
+
