@@ -103,7 +103,6 @@ animateplot <- myplot + transition_time(year) +
   #view_follow(fixed_y = TRUE)+
   xlab("Year") + ylab("Prevalence per 100,000")
 
-saveHTML(animate(animateplot, width = 1600, height = 600), 
-         img.name = "MurderCrime_DMV.html", 
-         htmlfile = "MurderCrime_DMV.html")
+animate(animateplot, width = 1600, height = 600)
+anim_save("MurderCrime_DMV.gif")
 
