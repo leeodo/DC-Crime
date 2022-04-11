@@ -19,10 +19,17 @@
 
 * The first choropleth map is showing the overall crime number and crime rate in each of the eight wards. The color of this choropleth is dependent on the absolute value of number of crimes. Which indicate the frequency of the crime activities. Tooltips will show ward number, the exact number on number of crimes and crime rate based on population when hover mouse over
 
-* The second map is a prototype of choropleth that have a drop down manu to allow user to explore the data freely. Users will be able to choose the type offense and type of map to show at will. The main purpose of this graph is to show the differences between different type of crimes.
+* The second map is a prototype of choropleth map that has a drop down menu to allow user to explore the data freely. Users will be able to choose the type offense and type of map to show at will. The main purpose of this graph is to show the differences between different type of crimes.
 
 ## Wordcloud
 
-![violon](screenshots/wordcloud.png?raw=true "Title")
+![wordcloud](screenshots/wordcloud.png?raw=true "Title")
 
 * Description Here
+
+## Faceted Bar Graph
+
+![faceted bar garph](screenshots/VA_violent_crime.png?raw=true "Title")
+
+* The facetted bar garph shown above is an overview of the Virginia metropolitan area's 2017 violent crime rate breakdown. The crime rate gives the number of crimes matching each county/city for every 1,000 people living in that area for the year 2017. It is calculated by dividing the number of different types of violent crimes by the estimated population, and multiplying the result by 1,000.
+
