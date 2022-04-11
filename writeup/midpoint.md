@@ -10,7 +10,7 @@
 
 ## Scatter Plot
 
-![scatter plot]()
+![scatter plot](screenshots/dc_crime_rate_scatter.png?raw=true "Title")
 * The scatter plot above is used to visualize violent murder crime rates in District of Colombia, Maryland and Virginia from 1960 to 2019. The bullet points each represent the size of the population for each state and districts. While DC, has the smallest population, it has a the highest crime rate when compared to VA and MD. The animation presented in the scatter plot are intended to highlight the large difference in murder crime rates in each state, and how wider the gaps get over time. 
 
 * The visualization is created is are using r packages ggplot and gganimate.
