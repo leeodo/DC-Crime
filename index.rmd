@@ -15,10 +15,10 @@ p.caption {
 
 # Violin Graph
 
-<iframe src="violin.html" width="100%" height="900"> </iframe>
+<iframe src="violin.html" width="100%" height="500"> </iframe>
 
 
 
 # Word Clouds
-<iframe src="wordcloud_ward.html" width="100%" height="900"> </iframe>
-<iframe src="wordcloud_crime.html" width="100%" height="900"> </iframe>
+<iframe src="wordcloud_ward.html" width="100%" height="500"> </iframe>
+<iframe src="wordcloud_crime.html" width="100%" height="500"> </iframe>
