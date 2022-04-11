@@ -2,6 +2,7 @@
 
 # %%
 import folium
+import folium.plugins
 import pandas as pd
 import geopandas as gpd
 import datetime
@@ -10,6 +11,7 @@ datetime.datetime.strptime
 
 # %%
 # read in data
+orig_data = pd.read_csv("data/dc.csv")
 df = pd.read_csv("data/dc_num_crimes_ward_2021.csv")
 df1 = pd.read_csv("data/dc_num_crimes_ward_type.csv")
 dc_gpd = gpd.read_file("Wards_from_2012.geojson")
@@ -110,4 +112,38 @@ folium.LayerControl().add_to(map1)  # use folium to add layer control
 
 map1.save("dc_rob_sex_crime_2021.html")
 
+# %%
+orig_data["REPORT_DAT"] = pd.to_datetime(orig_data["REPORT_DAT"]).dt.date
+orig_2021 = orig_data[
+    (orig_data["REPORT_DAT"] >= datetime.date(2021, 1, 1))
+    & (orig_data["REPORT_DAT"] <= datetime.date(2021, 12, 31))
+]
+
+geomatry = gpd.points_from_xy(orig_2021.LONGITUDE, orig_2021.LATITUDE)
+
+map2 = folium.Map(location=[38.9072, -77.0369], tiles="CartoDB positron", zoom_start=11)
+
+marker_cluster = folium.plugins.MarkerCluster().add_to(map2)
+
+for point in geomatry:
+    folium.Marker(
+        [point.xy[1][0], point.xy[0][0]],
+        icon=folium.Icon(
+            color="darkblue", icon_color="white", icon="siren-on", angle=0, prefix="fa"
+        ),
+    ).add_to(marker_cluster)
+
+map2.save("marker_cluster_2021.html")
+
+# %%
+# Heatmap
+map3 = folium.Map(
+    location=[38.9072, -77.0369], tiles="Cartodb dark_matter", zoom_start=11
+)
+
+heat_data = [[point.xy[1][0], point.xy[0][0]] for point in geomatry]
+
+folium.plugins.HeatMap(heat_data).add_to(map3)
+
+map3.save("heatmap_2021.html")
 # %%
