@@ -22,3 +22,12 @@ p.caption {
 # Word Clouds
 <iframe src="wordcloud_ward.html" width="100%" height="500"> </iframe>
 <iframe src="wordcloud_crime.html" width="100%" height="500"> </iframe>
+
+# Maps
+<iframe src="dc_crime_map_2021.html" width="100%" height="500"> </iframe>
+
+<iframe src="dc_rob_sex_crime_2021.html" width="100%" height="500"> </iframe>
+
+<iframe src="heatmap_2021.html" width="100%" height="500"> </iframe>
+
+<iframe src="marker_cluster_2021.html" width="100%" height="500"> </iframe>
