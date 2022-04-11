@@ -18,6 +18,10 @@
 
 * The second map is a prototype of choropleth that have a drop down manu to allow user to explore the data freely. Users will be able to choose the type offense and type of map to show at will. The main purpose of this graph is to show the differences between different type of crimes.
 
+* The Third map is a heatmap and it shows the density of crimes on a map. We can see high frequency area of the crime to help us understand such matters geographically.
+
+* The fourth map is a marker cluster which shares similar idea with the third map. However, this type of graph can show individual events when we zoom-in close enough.
+
 ## Wordcloud
 
 * Description Here
