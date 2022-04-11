@@ -10,7 +10,10 @@
 
 ## Violin Graph
 
-* Description Here
+![violon](screenshots/violin.png?raw=true "Title")
+
+* A violin plot is used to visualize the distribution of the various crimes. The log10 transformed number of incidents is used for better scaling and visibility. The typical rainbow color scheme is used to distinguish the types of crimes. The viewer is able to select the type of crimes either from the violins or the legend, and see details of the crimes in the tooltips. 
+* However, its interactivity is limited to the basic plotly functionalities. Only the DC data is included due to a temporary obstacle in wrangling the VA dataset. It realized only part of the functions we expected. I'll strive to make improvements later, where adding the function to select area and year from the menu is the most crucial next step. I'll also create a button for switching between the identity and log10 measure of the y-axis and make some other improvements on the tooltips. 
 
 ## Maps
 
@@ -19,5 +22,7 @@
 * The second map is a prototype of choropleth that have a drop down manu to allow user to explore the data freely. Users will be able to choose the type offense and type of map to show at will. The main purpose of this graph is to show the differences between different type of crimes.
 
 ## Wordcloud
+
+![violon](screenshots/wordcloud.png?raw=true "Title")
 
 * Description Here
