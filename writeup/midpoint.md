@@ -29,7 +29,8 @@
 
 ## Faceted Bar Graph
 
-![faceted bar garph](screenshots/VA_violent_crime.png?raw=true "Title")
+![faceted bar graph](screenshots/VA_violent_crime.png?raw=true "Title")
 
-* The facetted bar garph shown above is an overview of the Virginia metropolitan area's 2017 violent crime rate breakdown. The crime rate gives the number of crimes matching each county/city for every 1,000 people living in that area for the year 2017. It is calculated by dividing the number of different types of violent crimes by the estimated population, and multiplying the result by 1,000.
+* The faceted bar graph shown above is an overview of the Virginia metropolitan area's 2017 violent crime rate breakdown. The crime rate gives the number of crimes matching each county/city for every 1,000 people living in that area for the year 2017. It is calculated by dividing the number of different types of violent crimes by the estimated population, and multiplying the result by 1,000.
 
+* It's worth mentioning that since the original dataset has three NAs of Murder and Nonnegligent Manslaughter in Culpeper county, city of Fairfax, and Rappahannock county, so that there has no bar showing in the their individual bar plots. 
