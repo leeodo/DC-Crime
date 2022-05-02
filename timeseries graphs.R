@@ -1,6 +1,7 @@
 
 #load packages 
 library(tidyverse)
+library(dplyr)
 library(esquisse)
 library(plotly)
 library(chron)
@@ -14,7 +15,7 @@ library(scales)
 library(animation)
 
 
-states_df <- read_csv("G:/My Drive/ANLY 503 Project group/project-spring-2022-projectgroup33/data/US by State/state_crime.csv")
+states_df <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/US by State/state_crime.csv")
 names(states_df) <- to_snake_case(names(states_df))
 #states_df <- states_df %>% replace_na(0)
 
@@ -48,7 +49,7 @@ fig <- fig %>% layout(title = list(text = "
 
 fig
 
-htmlwidgets::saveWidget(as_widget(fig), "G:/My Drive/ANLY 503 Project group/project-spring-2022-projectgroup33/ViolentCrime_DMV.html")
+htmlwidgets::saveWidget(as_widget(fig), "/Volumes/GoogleDrive/My Drive/project-spring-2022-projectgroup33/TimeseriesViolentCrime_DMV.html")
 
 
 
