@@ -63,25 +63,25 @@ num_crimes_ward_type = pd.DataFrame(
 
 num_crimes_ward_type.to_csv("data/dc_num_crimes_ward_type.csv", index=False)
 
-# create a new DataFrame with number of crimes per day per ward in 2021
-num_crimes_ward_2021 = df.groupby(["REPORT_DAT", "WARD"]).size()
-num_crimes_ward_2021 = pd.DataFrame(
+# create a new DataFrame with number of crimes per day per ward in 2020
+num_crimes_ward_2020 = df.groupby(["REPORT_DAT", "WARD"]).size()
+num_crimes_ward_2020 = pd.DataFrame(
     {
-        "REPORT_DAT": num_crimes_ward_2021.index.get_level_values(0),
-        "WARD": num_crimes_ward_2021.index.get_level_values(1),
-        "num_crimes_ward_2021": num_crimes_ward_2021.values,
+        "REPORT_DAT": num_crimes_ward_2020.index.get_level_values(0),
+        "WARD": num_crimes_ward_2020.index.get_level_values(1),
+        "num_crimes_ward_2020": num_crimes_ward_2020.values,
     }
 )
-num_crimes_ward_2021 = num_crimes_ward_2021[
-    (num_crimes_ward_2021["REPORT_DAT"] >= datetime.date(2021, 1, 1))
-    & (num_crimes_ward_2021["REPORT_DAT"] <= datetime.date(2021, 12, 31))
+num_crimes_ward_2020 = num_crimes_ward_2020[
+    (num_crimes_ward_2020["REPORT_DAT"] >= datetime.date(2020, 1, 1))
+    & (num_crimes_ward_2020["REPORT_DAT"] <= datetime.date(2020, 12, 31))
 ]
 
-num_crimes_ward_2021 = num_crimes_ward_2021.groupby(["WARD"]).sum()
+num_crimes_ward_2020 = num_crimes_ward_2020.groupby(["WARD"]).sum()
 
-num_crimes_ward_2021["WARD"] = num_crimes_ward_2021.index
-num_crimes_ward_2021["WARD"] = num_crimes_ward_2021["WARD"].astype(int)
+num_crimes_ward_2020["WARD"] = num_crimes_ward_2020.index
+num_crimes_ward_2020["WARD"] = num_crimes_ward_2020["WARD"].astype(int)
 
-num_crimes_ward_2021.to_csv("data/dc_num_crimes_ward_2021.csv", index=False)
+num_crimes_ward_2020.to_csv("data/dc_num_crimes_ward_2020.csv", index=False)
 
 # %%

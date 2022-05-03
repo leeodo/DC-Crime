@@ -12,21 +12,21 @@ datetime.datetime.strptime
 # %%
 # read in data
 orig_data = pd.read_csv("data/dc.csv")
-df = pd.read_csv("data/dc_num_crimes_ward_2021.csv")
+df = pd.read_csv("data/dc_num_crimes_ward_2020.csv")
 df1 = pd.read_csv("data/dc_num_crimes_ward_type.csv")
-dc_gpd = gpd.read_file("Wards_from_2012.geojson")
+dc_gpd = gpd.read_file("Wards_from_2012.geojson")  # read in geojson file
 
 # %%
 # Merge the two dataframes
 gdf = dc_gpd.merge(df, on="WARD", how="left").fillna(0)
-gdf["crime_rate"] = gdf["num_crimes_ward_2021"] / gdf["POP_2011_2015"]
+gdf["crime_rate"] = gdf["num_crimes_ward_2020"] / gdf["POP_2011_2015"]
 
 # %%
-# Mugleing the df1 for 2021 crime type summary
+# Mugleing the df1 for 2020 crime type summary
 df1["REPORT_DAT"] = pd.to_datetime(df1["REPORT_DAT"]).dt.date
 df1 = df1[
-    (df1["REPORT_DAT"] >= datetime.date(2021, 1, 1))
-    & (df1["REPORT_DAT"] <= datetime.date(2021, 12, 31))
+    (df1["REPORT_DAT"] >= datetime.date(2020, 1, 1))
+    & (df1["REPORT_DAT"] <= datetime.date(2020, 12, 31))
 ]
 df1 = df1.groupby(["WARD", "offense-text"]).sum().reset_index()
 
@@ -45,13 +45,12 @@ gdf1 = dc_gpd.merge(dc_robbery, on="WARD", how="left").fillna(0)
 gdf1 = gdf1.merge(dc_sex_abuse, on="WARD", how="left").fillna(0)
 
 # %%
-# create a map
+# DC 2020 crime map
+## create a map
 map = folium.Map(location=[38.9072, -77.0369], zoom_start=11)
 
-
-# %%
 # bind geojson data to map
-variable = "num_crimes_ward_2021"
+variable = "num_crimes_ward_2020"
 
 colormap = folium.LinearColormap(
     colors=[(230, 230, 250), (75, 0, 130)],
@@ -61,7 +60,7 @@ colormap = folium.LinearColormap(
 
 folium.GeoJson(
     gdf[["geometry", "WARD", variable, "crime_rate"]],
-    name="DC Crime Map 2021",
+    name="DC Crime Map 2020",
     style_function=lambda x: {
         "weight": 2,
         "color": "black",
@@ -76,7 +75,7 @@ folium.GeoJson(
             variable,
             "crime_rate",
         ],
-        aliases=["WARD", "Total Crimes 2021", "Crime Rate 2021"],
+        aliases=["WARD", "Total Crimes 2020", "Crime Rate 2020"],
         labels=True,
         sticky=True,
         toLocaleString=True,
@@ -87,7 +86,7 @@ colormap.add_to(map)
 
 # %%
 # saving the map
-map.save("dc_crime_map_2021.html")
+map.save("dc_crime_map_2020.html")
 
 # %%
 # map with crime types
@@ -110,16 +109,17 @@ folium.TileLayer("Stamen Toner", control=True).add_to(
 )  # use folium to add alternative tiles
 folium.LayerControl().add_to(map1)  # use folium to add layer control
 
-map1.save("dc_rob_sex_crime_2021.html")
+map1.save("dc_rob_sex_crime_2020.html")
 
 # %%
+# Marker Cluster
 orig_data["REPORT_DAT"] = pd.to_datetime(orig_data["REPORT_DAT"]).dt.date
-orig_2021 = orig_data[
-    (orig_data["REPORT_DAT"] >= datetime.date(2021, 1, 1))
-    & (orig_data["REPORT_DAT"] <= datetime.date(2021, 12, 31))
+orig_2020 = orig_data[
+    (orig_data["REPORT_DAT"] >= datetime.date(2020, 1, 1))
+    & (orig_data["REPORT_DAT"] <= datetime.date(2020, 12, 31))
 ]
 
-geomatry = gpd.points_from_xy(orig_2021.LONGITUDE, orig_2021.LATITUDE)
+geomatry = gpd.points_from_xy(orig_2020.LONGITUDE, orig_2020.LATITUDE)
 
 map2 = folium.Map(location=[38.9072, -77.0369], tiles="CartoDB positron", zoom_start=11)
 
@@ -133,7 +133,7 @@ for point in geomatry:
         ),
     ).add_to(marker_cluster)
 
-map2.save("marker_cluster_2021.html")
+map2.save("marker_cluster_2020.html")
 
 # %%
 # Heatmap
@@ -145,5 +145,5 @@ heat_data = [[point.xy[1][0], point.xy[0][0]] for point in geomatry]
 
 folium.plugins.HeatMap(heat_data).add_to(map3)
 
-map3.save("heatmap_2021.html")
+map3.save("heatmap_2020.html")
 # %%
