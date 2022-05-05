@@ -73,9 +73,19 @@ stat_percentages = statistics.loc[
 # %%
 # graph mean and median income per wards
 income_fig = px.bar(
-    stat_income, x="ward", y="value", color="statistic", barmode="group"
+    stat_income,
+    x="ward",
+    y="value",
+    color="statistic",
+    color_discrete_map={"Mean Income": "#fdd49e", "Median Income": "#ef6548"},
+    barmode="group",
+    title="Mean and Median Income per Ward",
+    hover_name="statistic",
+    hover_data={"statistic": False},
+    labels={"value": "Dollars", "ward": "Ward", "statistic": "Statistic"},
 )
-income_fig.show()
+income_fig.update_xaxes(type="category")
+income_fig.write_html("dc_income_fig.html")
 
 
 # %%
@@ -85,11 +95,14 @@ percent_fig = px.bar(
     x="ward",
     y="value",
     color="statistic",
+    color_discrete_map={"Crime Rate": "#fdd49e", "Unemployment Rate": "#ef6548"},
     barmode="group",
     title="Crime Rate and Unemployment Rate per Ward",
     hover_name="statistic",
     hover_data={"statistic": False},
+    labels={"value": "%", "ward": "Ward", "statistic": "Statistic"},
 )
-percent_fig.show()
+percent_fig.update_xaxes(type="category")
+percent_fig.write_html("dc_percent_fig.html")
 
 # %%
