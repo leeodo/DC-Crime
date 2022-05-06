@@ -60,6 +60,9 @@ gdf1 = dc_gpd.merge(dc_violent, on="WARD", how="left").fillna(0)
 gdf1["violent_num"] = gdf1.iloc[:, -6:].sum(axis=1)
 gdf1["violent_rate"] = round(gdf1["violent_num"] / gdf1["POP_2011_2015"], 5)
 
+dc_violent["violent_num"] = gdf1["violent_num"].copy()
+dc_violent["violent_rate"] = gdf1["violent_rate"].copy()
+
 dc_violent.to_csv("data/dc_violent_crimes.csv", index=False)
 
 

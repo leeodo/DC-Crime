@@ -8,16 +8,8 @@ import plotly.express as px
 
 # %%
 # loading data
-crime_num_2020 = pd.read_csv("data/dc_num_crimes_ward_2020.csv")
+crime_num_2020 = pd.read_csv("data/dc_violent_crimes.csv")
 eco_characteristics = pd.read_csv("data/Economic Characteristics of DC Wards.csv")
-population = pd.read_excel(
-    "data/Table 1 - District of Columbia Ward Population and Change 2010 & 2020.xlsx",
-    usecols=[0, 2],
-    names=["ward", "population"],
-    skiprows=[0, 1, 2, 3, 4, 5, 6, 7, 17, 18],
-)
-population["ward"] = range(1, 9)
-
 
 # %%
 # Merge the two datasets
@@ -25,18 +17,12 @@ merged_data = pd.merge(
     crime_num_2020, eco_characteristics, left_on="WARD", right_on="Ward"
 )
 
-merged_data = pd.merge(merged_data, population, left_on="WARD", right_on="ward")
-
-merged_data["crime_rate"] = (
-    merged_data["num_crimes_ward_2020"] / merged_data["population"]
-)
-
 # %%
 # subset the data only will be graphed
 statistics = merged_data[
     [
         "WARD",
-        "crime_rate",
+        "violent_rate",
         "EMPLOYMENT STATUS: Civilian labor force: Unemployment Rate",
         "INCOME AND BENEFITS (IN 2019 INFLATION-ADJUSTED DOLLARS): Total households: Mean household income (dollars)",
         "INCOME AND BENEFITS (IN 2019 INFLATION-ADJUSTED DOLLARS): Total households: Median household income (dollars)",
@@ -52,7 +38,7 @@ statistics.columns = [
 ]
 
 # multiply the crime rate column by 100 to get the crime rate in percent and round to 1 decimal place
-statistics["Crime Rate"] = statistics["Crime Rate"].apply(lambda x: round(x * 100, 1))
+statistics["Crime Rate"] = statistics["Crime Rate"].apply(lambda x: round(x * 100, 3))
 
 # make the data tidy
 statistics = pd.melt(
