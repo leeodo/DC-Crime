@@ -7,14 +7,17 @@ import pandas as pd
 import geopandas as gpd
 import datetime
 
-datetime.datetime.strptime
 
 # %%
 # read in data
-orig_data = pd.read_csv("data/dc.csv")
-df = pd.read_csv("data/dc_num_crimes_ward_2020.csv")
-df1 = pd.read_csv("data/dc_num_crimes_ward_type.csv")
-dc_gpd = gpd.read_file("Wards_from_2012.geojson")  # read in geojson file
+orig_data = pd.read_csv("data/dc.csv")  # dc crime data
+df = pd.read_csv(
+    "data/dc_num_crimes_ward_2020.csv"
+)  # number of crimes per ward in 2020
+df1 = pd.read_csv(
+    "data/dc_num_crimes_ward_type.csv"
+)  # number of crimes per ward by type
+dc_gpd = gpd.read_file("Wards_from_2012.geojson")  # ward boundaries
 
 # %%
 # Merge the two dataframes
@@ -29,20 +32,36 @@ df1 = df1[
     & (df1["REPORT_DAT"] <= datetime.date(2020, 12, 31))
 ]
 df1 = df1.groupby(["WARD", "offense-text"]).sum().reset_index()
-
 df1["WARD"] = df1["WARD"].astype(int)
 
-dc_robbery = df1[df1["offense-text"] == "robbery"][
-    ["WARD", "num_crimes_ward_type"]
-].reindex()
-dc_robbery = dc_robbery.rename(columns={"num_crimes_ward_type": "robbery"})
-dc_sex_abuse = df1[df1["offense-text"] == "sex abuse"][
-    ["WARD", "num_crimes_ward_type"]
-].reindex()
-dc_sex_abuse = dc_sex_abuse.rename(columns={"num_crimes_ward_type": "sex_abuse"})
+violent_types = [
+    "arson",
+    "assault w/dangerous weapon",
+    "burglary",
+    "homicide",
+    "robbery",
+    "sex abuse",
+]  # Violent Crime Names
 
-gdf1 = dc_gpd.merge(dc_robbery, on="WARD", how="left").fillna(0)
-gdf1 = gdf1.merge(dc_sex_abuse, on="WARD", how="left").fillna(0)
+dc_violent = df1[
+    df1["offense-text"].isin(violent_types)
+].reindex()  # subset violent crimes only
+
+dc_violent = dc_violent.pivot_table(
+    index="WARD", columns=["offense-text"], fill_value=0
+)  # pivot wider
+
+dc_violent.columns = dc_violent.columns.droplevel(0)  # remove top column level
+dc_violent.columns.name = None  # remove name of column names
+dc_violent = dc_violent.reset_index()  # reset index
+
+gdf1 = dc_gpd.merge(dc_violent, on="WARD", how="left").fillna(0)
+
+gdf1["violent_num"] = gdf1.iloc[:, -6:].sum(axis=1)
+gdf1["violent_rate"] = round(gdf1["violent_num"] / gdf1["POP_2011_2015"], 5)
+
+dc_violent.write_csv("data/dc_violent_crimes.csv")
+
 
 # %%
 # DC 2020 crime map
@@ -53,7 +72,7 @@ map = folium.Map(location=[38.9072, -77.0369], zoom_start=11)
 variable = "num_crimes_ward_2020"
 
 colormap = folium.LinearColormap(
-    colors=[(230, 230, 250), (75, 0, 130)],
+    colors=[(254, 240, 217), (153, 0, 0)],
     vmin=gdf.loc[gdf[variable] > 0, variable].min(),
     vmax=gdf.loc[gdf[variable] > 0, variable].max(),
 )
@@ -83,33 +102,24 @@ folium.GeoJson(
 ).add_to(map)
 
 colormap.add_to(map)
-
-# %%
 # saving the map
 map.save("dc_crime_map_2020.html")
 
+
 # %%
-# map with crime types
+# choropleth with violent crime rate
 map1 = gdf1.explore(
-    column="robbery",  # column to explode
-    tooltip="robbery",
+    column="violent_rate",  # column to explode
+    tooltip=["WARD", "violent_rate", "violent_num"],  # tooltip
     scheme="naturalbreaks",  # use mapclassify's natural breaks scheme
     legend=True,  # show legend
-    k=10,  # use 10 bins
-    legend_kwds=dict(colorbar=False),  # do not use colorbar
-    name="Robbery",  # name of the layer in the map
+    k=8,  # use 10 bins
+    legend_kwds=dict(colorbar=True),  # use colorbar
+    name="Violent Crime",  # name of the layer in the map
+    cmap="OrRd",  # use the colormap
 )
 
-gdf1.explore(
-    m=map1, column="sex_abuse", tooltip=["sex_abuse", "robbery"], name="Sex Abuse"
-)
-
-folium.TileLayer("Stamen Toner", control=True).add_to(
-    map1
-)  # use folium to add alternative tiles
-folium.LayerControl().add_to(map1)  # use folium to add layer control
-
-map1.save("dc_rob_sex_crime_2020.html")
+map1.save("dc_violent_crime_2020.html")
 
 # %%
 # Marker Cluster
@@ -141,9 +151,23 @@ map3 = folium.Map(
     location=[38.9072, -77.0369], tiles="Cartodb dark_matter", zoom_start=11
 )
 
+colormap = folium.LinearColormap(colors=[(254, 240, 217), (153, 0, 0)], vmin=0, vmax=1)
+
+colormap.add_to(map3)
+
 heat_data = [[point.xy[1][0], point.xy[0][0]] for point in geomatry]
 
-folium.plugins.HeatMap(heat_data).add_to(map3)
+folium.plugins.HeatMap(
+    heat_data,
+    gradient={
+        0.0: "#fef0d9",
+        0.2: "#fdd49e",
+        0.4: "#fdbb84",
+        0.6: "#fc8d59",
+        0.75: "#ef6548",
+        0.9: "#d7301f",
+        1.0: "#990000",
+    },
+).add_to(map3)
 
 map3.save("heatmap_2020.html")
-# %%
