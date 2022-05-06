@@ -106,7 +106,7 @@ folium.GeoJson(
 
 colormap.add_to(map)
 # saving the map
-map.save("dc_crime_map_2020.html")
+map.save("html_viz/dc_crime_map_2020.html")
 
 
 # %%
@@ -122,7 +122,7 @@ map1 = gdf1.explore(
     cmap="OrRd",  # use the colormap
 )
 
-map1.save("dc_violent_crime_2020.html")
+map1.save("html_viz/dc_violent_crime_2020.html")
 
 # %%
 # Marker Cluster
@@ -146,7 +146,7 @@ for point in geomatry:
         ),
     ).add_to(marker_cluster)
 
-map2.save("marker_cluster_2020.html")
+map2.save("html_viz/marker_cluster_2020.html")
 
 # %%
 # Heatmap
@@ -173,4 +173,4 @@ folium.plugins.HeatMap(
     },
 ).add_to(map3)
 
-map3.save("heatmap_2020.html")
+map3.save("html_viz/heatmap_2020.html")

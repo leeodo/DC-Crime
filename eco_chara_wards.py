@@ -71,7 +71,7 @@ income_fig = px.bar(
     labels={"value": "Dollars", "ward": "Ward", "statistic": "Statistic"},
 )
 income_fig.update_xaxes(type="category")
-income_fig.write_html("dc_income_fig.html")
+income_fig.write_html("html_viz/dc_income_fig.html")
 
 
 # %%
@@ -89,6 +89,6 @@ percent_fig = px.bar(
     labels={"value": "%", "ward": "Ward", "statistic": "Statistic"},
 )
 percent_fig.update_xaxes(type="category")
-percent_fig.write_html("dc_percent_fig.html")
+percent_fig.write_html("html_viz/dc_percent_fig.html")
 
 # %%
