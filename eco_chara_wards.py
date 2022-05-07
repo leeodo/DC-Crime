@@ -73,7 +73,11 @@ income_fig = px.bar(
     title="Mean and Median Income per Ward",
     hover_name="statistic",
     hover_data={"statistic": False},
-    labels={"value": "Dollars", "ward": "Ward", "statistic": "Statistic"},
+    labels={
+        "value": "<b>Dollars</b>",
+        "ward": "<b>Ward</b>",
+        "statistic": "<b>Statistic</b>",
+    },
 )
 income_fig.update_xaxes(
     type="category", showgrid=False, showline=True, linecolor="#000000", linewidth=1
@@ -95,7 +99,11 @@ unemployment_fig = px.bar(
     title="Unemployment Rate per Ward",
     hover_name="statistic",
     hover_data={"statistic": False},
-    labels={"value": "Unemployment Rate(%)", "ward": "Ward", "statistic": "Statistic"},
+    labels={
+        "value": "<b>Unemployment Rate(%)</b>",
+        "ward": "<b>Ward</b>",
+        "statistic": "<b>Statistic</b>",
+    },
 )
 unemployment_fig.update_xaxes(
     type="category", showgrid=False, showline=True, linecolor="#000000", linewidth=1
@@ -119,16 +127,23 @@ violent_crime_per_100K_fig = px.bar(
     hover_name="statistic",
     hover_data={"statistic": False},
     labels={
-        "value": "Crimes Per 100K Population",
-        "ward": "Ward",
-        "statistic": "Statistic",
+        "value": "<b>Crimes Per 100K Population</b>",
+        "ward": "<b>Ward</b>",
+        "statistic": "<b>Statistic</b>",
     },
 )
 violent_crime_per_100K_fig.update_xaxes(
-    type="category", showgrid=False, showline=True, linecolor="#000000", linewidth=1
+    type="category",
+    showgrid=False,
+    showline=True,
+    linecolor="#000000",
+    linewidth=1,
 )
 violent_crime_per_100K_fig.update_yaxes(
-    showgrid=False, showline=True, linecolor="#000000", linewidth=1
+    showgrid=False,
+    showline=True,
+    linecolor="#000000",
+    linewidth=1,
 )
 violent_crime_per_100K_fig.update_layout(font_family="serif", font_size=16)
 violent_crime_per_100K_fig.write_html("html_viz/dc_violent_crime_per_100K_fig.html")
