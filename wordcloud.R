@@ -7,21 +7,30 @@ library(wordcloud2)
 library(gridExtra)
 library(cowplot)
 
-data1 <- read_csv("data/dc_num_crimes_ward_2021.csv")
+data1 <- read_csv("data/dc_num_crimes_ward.csv")
 
 par(mfrow = c(1, 2))
 
 # First wordcloud based on location
 df <- data1
 df$WARD <- sub("^", "Ward ", df$WARD)
-colnames(df) <- c("freq", "word")
-df <- df[, c(2, 1)]
+
+df <- df %>%
+  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2021-01-01") %>%
+  group_by(WARD) %>%
+  summarize(num = sum(num_crimes_ward))
+
+
 
 w1 <- wordcloud2(
   data = df,
-  size = 0.7,
+  size = 1,
+  rotateRatio = .6,
+  shape = "circle",
+  fontWeight = "bold",
   color = "random-dark"
 )
+
 
 # htmlwidgets::saveWidget(w1, "wordcloud_ward.html")
 
@@ -31,23 +40,22 @@ w1 <- wordcloud2(
 data2 <- read_csv("data/dc_num_crimes_type.csv")
 
 df2 <- data2
-df2 <- df2 %>% filter(REPORT_DAT >= "2021-01-01" & REPORT_DAT <= "2022-01-01")
 df2 <- df2 %>%
+  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2021-01-01") %>%
   group_by(`offense-text`) %>%
-  summarize(num = sum(num_crimes_type))
-
-
-df2 <- df2 %>%
+  summarize(num = sum(num_crimes_type)) %>%
   mutate(num_log = log(num))
 
 df2 <- df2[, -2]
 
 w2 <- wordcloud2(
   data = df2,
-  minSize = 0.5,
-  size = 1,
+  size = .8,
+  rotateRatio = .6,
   shape = "circle",
-  color = "random-dark"
+  fontWeight = "bold",
+  color = "random-dark",
+  shuffle = FALSE
 )
 
 # htmlwidgets::saveWidget(w2, "wordcloud_crime.html")
