@@ -24,7 +24,7 @@ df <- df %>%
 
 w1 <- wordcloud2(
   data = df,
-  size = 1,
+  size = .5,
   rotateRatio = .6,
   shape = "circle",
   fontWeight = "bold",
@@ -50,7 +50,7 @@ df2 <- df2[, -2]
 
 w2 <- wordcloud2(
   data = df2,
-  size = .8,
+  size = .3,
   rotateRatio = .6,
   shape = "circle",
   fontWeight = "bold",
