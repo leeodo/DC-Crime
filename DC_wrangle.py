@@ -9,7 +9,7 @@ datetime.datetime.strptime
 
 # %%
 # read in data
-df = pd.read_csv('~/Documents/Georgetown/ANLY503/PROJECT/DC/dc.csv')
+df = pd.read_csv("data/dc.csv")
 
 # %%
 # Remove time from date columns
@@ -24,7 +24,7 @@ num_crimes = pd.DataFrame(
     {"REPORT_DAT": num_crimes.index, "num_crimes": num_crimes.values}
 )
 
-num_crimes.to_csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/dc_num_crimes.csv", index=False)
+num_crimes.to_csv("data/dc_num_crimes.csv", index=False)
 
 # create a new DataFrame with number of individual crimes types per day
 num_crimes_type = df.groupby(["REPORT_DAT", "offense-text"]).size()
@@ -36,7 +36,7 @@ num_crimes_type = pd.DataFrame(
     }
 )
 
-num_crimes_type.to_csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/dc_num_crimes_type.csv", index=False)
+num_crimes_type.to_csv("data/dc_num_crimes_type.csv", index=False)
 
 # create a new DataFrame with number of crimes per day per Ward
 num_crimes_ward = df.groupby(["REPORT_DAT", "WARD"]).size()
@@ -48,7 +48,7 @@ num_crimes_ward = pd.DataFrame(
     }
 )
 
-num_crimes_ward.to_csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/dc_num_crimes_ward.csv", index=False)
+num_crimes_ward.to_csv("data/dc_num_crimes_ward.csv", index=False)
 
 # create a new DataFrame with number of crimes per day per Ward and crime type
 num_crimes_ward_type = df.groupby(["REPORT_DAT", "WARD", "offense-text"]).size()
@@ -61,7 +61,7 @@ num_crimes_ward_type = pd.DataFrame(
     }
 )
 
-num_crimes_ward_type.to_csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/dc_num_crimes_ward_type.csv", index=False)
+num_crimes_ward_type.to_csv("data/dc_num_crimes_ward_type.csv", index=False)
 
 # create a new DataFrame with number of crimes per day per ward in 2020
 num_crimes_ward_2020 = df.groupby(["REPORT_DAT", "WARD"]).size()
@@ -82,7 +82,7 @@ num_crimes_ward_2020 = num_crimes_ward_2020.groupby(["WARD"]).sum()
 num_crimes_ward_2020["WARD"] = num_crimes_ward_2020.index
 num_crimes_ward_2020["WARD"] = num_crimes_ward_2020["WARD"].astype(int)
 
-num_crimes_ward_2020.to_csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/dc_num_crimes_ward_2020.csv", index=False)
+num_crimes_ward_2020.to_csv("data/dc_num_crimes_ward_2020.csv", index=False)
 
 # create a new DataFrame with number of violent crimes per ward in 2020
 num_violentcrimes_ward_2020 = df[
@@ -91,15 +91,22 @@ num_violentcrimes_ward_2020 = df[
     & (df["offensegroup"] == "violent")
 ]
 
-num_violentcrimes_ward_2020 = num_violentcrimes_ward_2020.loc[:, ['WARD', 'OFFENSE']]
-num_violentcrimes_offense_2020 = num_violentcrimes_ward_2020.groupby(['WARD',
-                                                                      'OFFENSE']).size().reset_index(name='count')
-num_violentcrimes_ward_2020 = num_violentcrimes_ward_2020.groupby(['WARD']).size().reset_index(name='count')
+num_violentcrimes_ward_2020 = num_violentcrimes_ward_2020.loc[:, ["WARD", "OFFENSE"]]
+num_violentcrimes_offense_2020 = (
+    num_violentcrimes_ward_2020.groupby(["WARD", "OFFENSE"])
+    .size()
+    .reset_index(name="count")
+)
+num_violentcrimes_ward_2020 = (
+    num_violentcrimes_ward_2020.groupby(["WARD"]).size().reset_index(name="count")
+)
 num_violentcrimes_ward_2020["WARD"] = num_violentcrimes_ward_2020["WARD"].astype(int)
-num_violentcrimes_offense_2020["WARD"] = num_violentcrimes_offense_2020["WARD"].astype(int)
-num_violentcrimes_ward_2020.to_csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/num_violentcrimes_ward_2020.csv",
-                                   index=False)
-num_violentcrimes_offense_2020.to_csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/num_violentcrimes_offense_2020.csv",
-                                      index=False)
+num_violentcrimes_offense_2020["WARD"] = num_violentcrimes_offense_2020["WARD"].astype(
+    int
+)
+num_violentcrimes_ward_2020.to_csv("data/num_violentcrimes_ward_2020.csv", index=False)
+num_violentcrimes_offense_2020.to_csv(
+    "data/num_violentcrimes_offense_2020.csv", index=False
+)
 
 # %%
