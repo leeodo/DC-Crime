@@ -73,4 +73,19 @@ race_df$shareof_black <- race_df$black/race_df$total_population
 race_df$shareof_white <- race_df$white/race_df$total_population
 race_df$shareof_hispanic <- race_df$hispanic/race_df$total_population
 race_df$shareof_aapi <- race_df$aapi/race_df$total_population
+race_df$shareof_female <- race_df$`femalepop_18+`/race_df$`pop_18+`
+race_df$shareof_male <- race_df$`malepop_18+`/race_df$`pop_18+`
+
+
+
 race_df$shareof_other <- race_df$other/race_df$total_population
+
+#merge datasets 
+crime_df <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/DC/dc_num_crimes_ward_2020.csv")
+names(crime_df) <- to_snake_case(names(crime_df))
+crime_race <- crime_df %>% inner_join(race_df,by="ward")
+
+esquisser(crime_race)
+                                 
+                                                            
+                                 
