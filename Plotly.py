@@ -9,101 +9,135 @@ pio.renderers.default = "browser"
 pio.templates.default = "plotly_white"
 
 
-path1 = r"A5/eco/sm/04_sm_csv"
-path2 = r"A5/eco/sm/05_sm_csv"
-path3 = r"A5/eco/sm/06_sm_csv"
+df = pd.read_csv("data/dc_num_crimes_ward_type.csv")
 
+df_tmp = df.groupby(["REPORT_DAT", "WARD"], as_index=False)[
+    "num_crimes_ward_type"
+].sum()
+df_tmp["WARD"] = df_tmp["WARD"].astype(int)
 
-content1 = []
-content2 = []
-content3 = []
-
-for myfile in glob.glob(path1 + "/*.csv"):
-    tmp = pd.read_csv(myfile, index_col=None, na_values="-1", header=None).iloc[:, 0:1]
-    date = myfile[-14:-4]
-    df2 = pd.DataFrame()
-    df2["sum"] = tmp[0].sum()
-    df2.loc[0] = tmp[0].sum()
-    df2["date"] = date
-    content1.append(df2)
-
-df4 = pd.concat(content1)
-
-
-for myfile in glob.glob(path2 + "/*.csv"):
-    tmp = pd.read_csv(myfile, index_col=None, na_values="-1", header=None).iloc[:, 0:1]
-    date = myfile[-14:-4]
-    df2 = pd.DataFrame()
-    df2["sum"] = tmp[0].sum()
-    df2.loc[0] = tmp[0].sum()
-    df2["date"] = date
-    content2.append(df2)
-
-df5 = pd.concat(content2)
-
-
-for myfile in glob.glob(path3 + "/*.csv"):
-    tmp = pd.read_csv(myfile, index_col=None, na_values="-1", header=None).iloc[:, 0:1]
-    date = myfile[-14:-4]
-    df2 = pd.DataFrame()
-    df2["sum"] = tmp[0].sum()
-    df2.loc[0] = tmp[0].sum()
-    df2["date"] = date
-    content3.append(df2)
-
-df6 = pd.concat(content3)
-
-
-df4 = df4.sort_values(by=["date"])
-df5 = df5.sort_values(by=["date"])
-df6 = df6.sort_values(by=["date"])
-
-df4["household"] = 4
-df5["household"] = 5
-df6["household"] = 6
-
-df = pd.concat([df4, df5, df6])
+df1 = df_tmp.loc[df_tmp["WARD"] == 1]
+df2 = df_tmp.loc[df_tmp["WARD"] == 2]
+df3 = df_tmp.loc[df_tmp["WARD"] == 3]
+df4 = df_tmp.loc[df_tmp["WARD"] == 4]
+df5 = df_tmp.loc[df_tmp["WARD"] == 5]
+df6 = df_tmp.loc[df_tmp["WARD"] == 6]
+df7 = df_tmp.loc[df_tmp["WARD"] == 7]
+df8 = df_tmp.loc[df_tmp["WARD"] == 8]
 
 
 ## Vis
 
 
-household4 = go.Scatter(
-    x=df4["date"][:2],
-    y=df4["sum"][:2],
+ward1 = go.Scatter(
+    x=df1["REPORT_DAT"][:2],
+    y=df1["num_crimes_ward_type"][:2],
     mode="lines",
     line=dict(width=1.5),
-    name="household 4",
+    name="ward 1",
 )
-household5 = go.Scatter(
-    x=df5["date"][:2],
-    y=df5["sum"][:2],
+ward2 = go.Scatter(
+    x=df2["REPORT_DAT"][:2],
+    y=df2["num_crimes_ward_type"][:2],
     mode="lines",
     line=dict(width=1.5),
-    name="household 5",
+    name="ward 2",
 )
-household6 = go.Scatter(
-    x=df6["date"][:2],
-    y=df6["sum"][:2],
+ward3 = go.Scatter(
+    x=df3["REPORT_DAT"][:2],
+    y=df3["num_crimes_ward_type"][:2],
     mode="lines",
     line=dict(width=1.5),
-    name="household 6",
+    name="ward 3",
 )
+ward4 = go.Scatter(
+    x=df4["REPORT_DAT"][:2],
+    y=df4["num_crimes_ward_type"][:2],
+    mode="lines",
+    line=dict(width=1.5),
+    name="ward 4",
+)
+ward5 = go.Scatter(
+    x=df5["REPORT_DAT"][:2],
+    y=df5["num_crimes_ward_type"][:2],
+    mode="lines",
+    line=dict(width=1.5),
+    name="ward 5",
+)
+ward6 = go.Scatter(
+    x=df6["REPORT_DAT"][:2],
+    y=df6["num_crimes_ward_type"][:2],
+    mode="lines",
+    line=dict(width=1.5),
+    name="ward 6",
+)
+ward7 = go.Scatter(
+    x=df7["REPORT_DAT"][:2],
+    y=df7["num_crimes_ward_type"][:2],
+    mode="lines",
+    line=dict(width=1.5),
+    name="ward 7",
+)
+ward8 = go.Scatter(
+    x=df8["REPORT_DAT"][:2],
+    y=df8["num_crimes_ward_type"][:2],
+    mode="lines",
+    line=dict(width=1.5),
+    name="ward 8",
+)
+
 
 frames = [
     dict(
         data=[
-            dict(type="scatter", x=df4["date"][: k + 1], y=df4["sum"][: k + 1]),
-            dict(type="scatter", x=df5["date"][: k + 1], y=df5["sum"][: k + 1]),
-            dict(type="scatter", x=df6["date"][: k + 1], y=df6["sum"][: k + 1]),
+            dict(
+                type="scatter",
+                x=df1["REPORT_DAT"][: k + 1],
+                y=df1["num_crimes_ward_type"][: k + 1],
+            ),
+            dict(
+                type="scatter",
+                x=df2["REPORT_DAT"][: k + 1],
+                y=df2["num_crimes_ward_type"][: k + 1],
+            ),
+            dict(
+                type="scatter",
+                x=df3["REPORT_DAT"][: k + 1],
+                y=df3["num_crimes_ward_type"][: k + 1],
+            ),
+            dict(
+                type="scatter",
+                x=df4["REPORT_DAT"][: k + 1],
+                y=df4["num_crimes_ward_type"][: k + 1],
+            ),
+            dict(
+                type="scatter",
+                x=df5["REPORT_DAT"][: k + 1],
+                y=df5["num_crimes_ward_type"][: k + 1],
+            ),
+            dict(
+                type="scatter",
+                x=df6["REPORT_DAT"][: k + 1],
+                y=df6["num_crimes_ward_type"][: k + 1],
+            ),
+            dict(
+                type="scatter",
+                x=df7["REPORT_DAT"][: k + 1],
+                y=df7["num_crimes_ward_type"][: k + 1],
+            ),
+            dict(
+                type="scatter",
+                x=df8["REPORT_DAT"][: k + 1],
+                y=df8["num_crimes_ward_type"][: k + 1],
+            ),
         ],
-        traces=[0, 1, 2],
+        traces=[0, 1, 2, 3, 4, 5, 6, 7],
     )
-    for k in range(1, len(df4) - 1)
+    for k in range(1, len(df1) - 1)
 ]
 
 layout = go.Layout(
-    width=1500,
+    width=2000,
     height=800,
     showlegend=False,
     hovermode="x unified",
@@ -123,7 +157,7 @@ layout = go.Layout(
                     args=[
                         None,
                         dict(
-                            frame=dict(duration=3, redraw=False),
+                            frame=dict(duration=1, redraw=False),
                             transition=dict(duration=0),
                             fromcurrent=True,
                             mode="immediate",
@@ -149,18 +183,22 @@ layout = go.Layout(
     ],
 )
 layout.update(
-    xaxis=dict(range=["2012-06-20", "2013-02-1"], autorange=False),
-    yaxis=dict(range=[0, 230000000], autorange=False),
+    xaxis=dict(range=["2014-02-17", "2022-02-15"], autorange=False),
+    yaxis=dict(range=[0, 80], autorange=False),
 )
 
-fig = go.Figure(data=[household4, household5, household6], frames=frames, layout=layout)
+fig = go.Figure(
+    data=[ward1, ward2, ward3, ward4, ward5, ward6, ward7, ward8],
+    frames=frames,
+    layout=layout,
+)
 
 fig.update_layout(
     {
-        "title": "Real Power Over All Power Phases Consumed in Three Selected Household<br><sup>Source: the Electricity Consumption and Occupancy (ECO) data set</sup>",
+        "title": "Crime Incidents in DC Wards from Feb 2014 to Feb 2022",
         "xaxis": {"title": "Time"},
-        "yaxis": {"title": "Total real power consumed (Watt)"},
-        "legend": {"title": "Households"},
+        "yaxis": {"title": "Number of Crimes"},
+        "legend": {"title": "Wards"},
         "showlegend": True,
     }
 )
