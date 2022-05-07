@@ -37,7 +37,7 @@ df <- read.csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/Social Characteristics
   left_join(demographic, by = "ward") %>%
   left_join(total_crimes_by_ward, by = "ward") %>%
   select(161, 162, 43:52, 105, 99:108, 1) %>%
-  rename(educatoin_attainment = 3,
+  rename(education_attainment = 3,
          highschool_dropout = 4,
          associates_degree = 5,
          bachelors_degree = 6,
@@ -100,3 +100,69 @@ graph <- ggplot(df) +
 graph <- ggplotly(graph, tooltip = c("text"))
 htmlwidgets::saveWidget(graph,
                         "html_viz/Violent_Crime_and_Education_Status.html")
+
+
+# make second graph
+df2 <- read.csv("~/Documents/Georgetown/ANLY503/PROJECT/DC/Social Characteristics of DC Wards.csv") %>%
+  rename_all(to_snake_case) %>%
+  left_join(demographic, by = "ward") %>%
+  left_join(total_crimes_by_ward, by = "ward") %>%
+  select(161, 162, 43:52, 105, 99:108, 1) %>%
+  rename(`Education Attainment` = 3,
+         `Highschool Dropout` = 4,
+         `Associates Degree` = 5,
+         `Bachelors Degree` = 6,
+         `Bachelors Or Higher` = 7,
+         `Graduate Degree or Higher` = 8,
+         `Highschool Degree` = 9,
+         `Highschool or Higher` = 10,
+         `Below Highschool` = 11,
+         `College Dropout` = 12) %>%
+  select(23, 1:12) %>%
+  left_join(violent_crimes_by_ward, by = "ward") %>%
+  select(1, 14, 2:4, 10, 6, 7, 9, 11, 12, 5) %>%
+  select(1, 6:9) %>%
+  pivot_longer(cols = c(2: 5),
+               names_to = "Education Status",
+               values_to = "Population") %>%
+  mutate(ward = as.factor(ward))
+
+graph2 <- ggplot(df2) +
+  aes(
+    x = ward,
+    fill = `Education Status`,
+    colour = `Education Status`,
+    weight = Population
+  ) +
+  geom_bar() +
+  scale_fill_manual(
+    values = c(`Associates Degree` = "#FFC697",
+               `Bachelors Degree` = "#FC8D59",
+               `Graduate Degree or Higher` = "#EF6548",
+               `Highschool Degree` = "#FFDFAE")
+  ) +
+  scale_color_manual(
+    values = c(`Associates Degree` = "#FFC697",
+               `Bachelors Degree` = "#FC8D59",
+               `Graduate Degree or Higher` = "#EF6548",
+               `Highschool Degree` = "#FFDFAE")
+  ) +
+  labs(
+    y = "Population",
+    x = "Ward",
+    title = "Education Status Breakdown by Ward"
+  ) +
+  coord_flip() +
+  ggthemes::theme_pander() +
+  theme(plot.title = element_text(size = 16L, face = "bold", hjust = 0.5),
+        plot.subtitle = element_text(size = 15L, face = "italic", hjust = 0.5),
+        plot.caption = element_text(size = 14L),
+        axis.title.y = element_text(size = 13L, face = "bold"),
+        axis.title.x = element_text(size = 13L, face = "bold"),
+        axis.text = element_text(size = 12L)) +
+  theme(strip.text.x = element_text(size = 11L, face = "bold")) +
+  theme(strip.text.y = element_text(size = 11L))
+
+graph2 <- ggplotly(graph2, tooltip = c("colour", "x", "weight"))
+htmlwidgets::saveWidget(graph2,
+                        "html_viz/Education_Status_Breakdown.html")
