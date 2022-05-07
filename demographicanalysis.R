@@ -32,8 +32,8 @@ race <- c('ward',
           'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races',                                                         
           'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races_two_races_excluding_some_other_race_and_three_or_more_races',
           'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races_two_races_including_some_other_race',                  
-          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_white_alone')                                                                
-
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_white_alone', 
+          'total_housing_units','sex_and_age_total_population_18_years_and_over_sex_ratio_males_per_100_females')                                                                
 
 race_df <- dc_demograph[race]
 
@@ -46,10 +46,10 @@ race_df <- race_df %>% rename("total_population"="hispanic_or_latino_and_race_to
                               "black"="hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_black_or_african_american_alone", 
                               "nhpi"="hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_native_hawaiian_and_other_pacific_islander_alone", 
                               "white"="hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_white_alone", 
-)
-race_df <- race_df %>% rename("pop_18+"="citizen_voting_age_population_citizen_18_and_over_population", 
+                              "pop_18+"="citizen_voting_age_population_citizen_18_and_over_population", 
                               "femalepop_18+"="citizen_voting_age_population_citizen_18_and_over_population_female", 
-                              "malepop_18+"= "citizen_voting_age_population_citizen_18_and_over_population_male")
+                              "malepop_18+"= "citizen_voting_age_population_citizen_18_and_over_population_male",
+                              "m_per_100_female_18+" ='sex_and_age_total_population_18_years_and_over_sex_ratio_males_per_100_females')
 View(race_df)
 
 #combined racial catagories 
@@ -75,10 +75,12 @@ race_df$shareof_hispanic <- race_df$hispanic/race_df$total_population
 race_df$shareof_aapi <- race_df$aapi/race_df$total_population
 race_df$shareof_female <- race_df$`femalepop_18+`/race_df$`pop_18+`
 race_df$shareof_male <- race_df$`malepop_18+`/race_df$`pop_18+`
-
-
-
 race_df$shareof_other <- race_df$other/race_df$total_population
+
+#caculate houseing unites per popuplation
+race_df$housing_per_person <- race_df$total_population/ race_df$total_housing_units
+head(race_df$housing_per_person)
+
 
 #merge datasets 
 violent_crime_df <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/DC/num_violentcrimes_ward_2020.csv")
@@ -88,11 +90,15 @@ View(violent_crime_df)
 violent_crime_race <- violent_crime_df %>% inner_join(race_df, by="ward")
 
 violent_crime_race$vcrime_rate <- (violent_crime_race$vcrime_count/violent_crime_race$total_population)*100000
+violent_crime_race$pop_under18 <-  violent_crime_race$total_population - violent_crime_race$`pop_18+` 
+violent_crime_race$shareof_popunder18 <- violent_crime_race$pop_under18 /violent_crime_race$total_population
+
+
 
 View(violent_crime_race)
 esquisser(violent_crime_race)
 
-write_csv(violent_crime_df,"/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/violent_crime_df")
+write_csv(violent_crime_race,"/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/violent_crime_race")
 
 
 
