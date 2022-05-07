@@ -5,6 +5,10 @@
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
+import plotly.io as pio
+
+pio.renderers.default = "browser"
+pio.templates.default = "plotly_white"
 
 # %%
 # loading data
@@ -71,10 +75,11 @@ income_fig = px.bar(
     hover_data={"statistic": False},
     labels={"value": "Dollars", "ward": "Ward", "statistic": "Statistic"},
 )
-income_fig.update_xaxes(type="category")
-income_fig.update_layout(
-    {"plot_bgcolor": "rgba(0,0,0,0)", "paper_bgcolor": "rgba(0,0,0,0)"}
+income_fig.update_xaxes(
+    type="category", showgrid=False, showline=True, linecolor="#000000", linewidth=1
 )
+income_fig.update_yaxes(showgrid=False, showline=True, linecolor="#000000", linewidth=1)
+income_fig.update_layout(font_family="serif", font_size=16)
 income_fig.write_html("html_viz/dc_income_fig.html")
 
 
@@ -92,10 +97,13 @@ unemployment_fig = px.bar(
     hover_data={"statistic": False},
     labels={"value": "Unemployment Rate(%)", "ward": "Ward", "statistic": "Statistic"},
 )
-unemployment_fig.update_xaxes(type="category")
-unemployment_fig.update_layout(
-    {"plot_bgcolor": "rgba(0,0,0,0)", "paper_bgcolor": "rgba(0,0,0,0)"}
+unemployment_fig.update_xaxes(
+    type="category", showgrid=False, showline=True, linecolor="#000000", linewidth=1
 )
+unemployment_fig.update_yaxes(
+    showgrid=False, showline=True, linecolor="#000000", linewidth=1
+)
+unemployment_fig.update_layout(font_family="serif", font_size=16)
 unemployment_fig.write_html("html_viz/dc_unemployment_fig.html")
 
 # %%
@@ -116,8 +124,11 @@ violent_crime_per_100K_fig = px.bar(
         "statistic": "Statistic",
     },
 )
-violent_crime_per_100K_fig.update_xaxes(type="category")
-violent_crime_per_100K_fig.update_layout(
-    {"plot_bgcolor": "rgba(0,0,0,0)", "paper_bgcolor": "rgba(0,0,0,0)"}
+violent_crime_per_100K_fig.update_xaxes(
+    type="category", showgrid=False, showline=True, linecolor="#000000", linewidth=1
 )
+violent_crime_per_100K_fig.update_yaxes(
+    showgrid=False, showline=True, linecolor="#000000", linewidth=1
+)
+violent_crime_per_100K_fig.update_layout(font_family="serif", font_size=16)
 violent_crime_per_100K_fig.write_html("html_viz/dc_violent_crime_per_100K_fig.html")
