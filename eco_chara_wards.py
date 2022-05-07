@@ -31,14 +31,16 @@ statistics = merged_data[
 ## rename the columns
 statistics.columns = [
     "ward",
-    "Crime Rate",
+    "Crime Per 100K",
     "Unemployment Rate",
     "Mean Income",
     "Median Income",
 ]
 
 # multiply the crime rate column by 100 to get the crime rate in percent and round to 1 decimal place
-statistics["Crime Rate"] = statistics["Crime Rate"].apply(lambda x: round(x * 100, 3))
+statistics["Crime Per 100K"] = statistics["Crime Per 100K"].apply(
+    lambda x: round(x * 1000000, 0)
+)
 
 # make the data tidy
 statistics = pd.melt(
@@ -51,10 +53,9 @@ stat_income = statistics.loc[
     | (statistics["statistic"] == "Median Income")
 ]
 
-stat_percentages = statistics.loc[
-    (statistics["statistic"] == "Crime Rate")
-    | (statistics["statistic"] == "Unemployment Rate")
-]
+stat_unemployment = statistics.loc[(statistics["statistic"] == "Unemployment Rate")]
+
+stat_crime_per_100k = statistics.loc[(statistics["statistic"] == "Crime Per 100K")]
 
 # %%
 # graph mean and median income per wards
@@ -79,23 +80,40 @@ income_fig.write_html("html_viz/dc_income_fig.html")
 
 # %%
 # graph crime rate and unemployment rate per wards
-percent_fig = px.bar(
-    stat_percentages,
+unemployment_fig = px.bar(
+    stat_unemployment,
     x="ward",
     y="value",
     color="statistic",
-    color_discrete_map={"Crime Rate": "#fdd49e", "Unemployment Rate": "#ef6548"},
+    color_discrete_map={"Unemployment Rate": "#ef6548"},
     barmode="group",
-    title="Crime Rate and Unemployment Rate per Ward",
+    title="Unemployment Rate per Ward",
     hover_name="statistic",
     hover_data={"statistic": False},
     labels={"value": "%", "ward": "Ward", "statistic": "Statistic"},
 )
-percent_fig.update_xaxes(type="category")
-percent_fig.update_xaxes(type="category")
-percent_fig.update_layout(
+unemployment_fig.update_xaxes(type="category")
+unemployment_fig.update_layout(
     {"plot_bgcolor": "rgba(0,0,0,0)", "paper_bgcolor": "rgba(0,0,0,0)"}
 )
-percent_fig.write_html("html_viz/dc_percent_fig.html")
+unemployment_fig.write_html("html_viz/dc_unemployment_fig.html")
 
 # %%
+# graph violent crime per 100k population per wards
+violent_crime_per_100K_fig = px.bar(
+    stat_crime_per_100k,
+    x="ward",
+    y="value",
+    color="statistic",
+    color_discrete_map={"Crime Per 100K": "#ef6548"},
+    barmode="group",
+    title="Crime Per 100K per Ward",
+    hover_name="statistic",
+    hover_data={"statistic": False},
+    labels={"value": "Per 100K", "ward": "Ward", "statistic": "Statistic"},
+)
+violent_crime_per_100K_fig.update_xaxes(type="category")
+violent_crime_per_100K_fig.update_layout(
+    {"plot_bgcolor": "rgba(0,0,0,0)", "paper_bgcolor": "rgba(0,0,0,0)"}
+)
+violent_crime_per_100K_fig.write_html("html_viz/dc_violent_crime_per_100K_fig.html")
