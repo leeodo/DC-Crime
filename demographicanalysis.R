@@ -18,22 +18,22 @@ names(dc_demograph) <- to_snake_case(names(dc_demograph))
 str(dc_demograph)
 
 race <- c('ward',                                                                                                                                             
-'citizen_voting_age_population_citizen_18_and_over_population',                                                                                     
-'citizen_voting_age_population_citizen_18_and_over_population_female',                                                                             
-'citizen_voting_age_population_citizen_18_and_over_population_male',                                                                                 
-'hispanic_or_latino_and_race_total_population',                                                                                                    
-'hispanic_or_latino_and_race_total_population_hispanic_or_latino_of_any_race',                                                                      
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino',                                                                             
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_american_indian_and_alaska_native_alone',                     
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_asian_alone',                                                                 
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_black_or_african_american_alone',                                              
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_native_hawaiian_and_other_pacific_islander_alone',                           
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_some_other_race_alone',                                      
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races',                                                         
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races_two_races_excluding_some_other_race_and_three_or_more_races',
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races_two_races_including_some_other_race',                  
-'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_white_alone')                                                                
-                                                                                                                
+          'citizen_voting_age_population_citizen_18_and_over_population',                                                                                     
+          'citizen_voting_age_population_citizen_18_and_over_population_female',                                                                             
+          'citizen_voting_age_population_citizen_18_and_over_population_male',                                                                                 
+          'hispanic_or_latino_and_race_total_population',                                                                                                    
+          'hispanic_or_latino_and_race_total_population_hispanic_or_latino_of_any_race',                                                                      
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino',                                                                             
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_american_indian_and_alaska_native_alone',                     
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_asian_alone',                                                                 
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_black_or_african_american_alone',                                              
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_native_hawaiian_and_other_pacific_islander_alone',                           
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_some_other_race_alone',                                      
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races',                                                         
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races_two_races_excluding_some_other_race_and_three_or_more_races',
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_two_or_more_races_two_races_including_some_other_race',                  
+          'hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_white_alone')                                                                
+
 
 race_df <- dc_demograph[race]
 
@@ -46,7 +46,7 @@ race_df <- race_df %>% rename("total_population"="hispanic_or_latino_and_race_to
                               "black"="hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_black_or_african_american_alone", 
                               "nhpi"="hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_native_hawaiian_and_other_pacific_islander_alone", 
                               "white"="hispanic_or_latino_and_race_total_population_not_hispanic_or_latino_white_alone", 
-                              )
+)
 race_df <- race_df %>% rename("pop_18+"="citizen_voting_age_population_citizen_18_and_over_population", 
                               "femalepop_18+"="citizen_voting_age_population_citizen_18_and_over_population_female", 
                               "malepop_18+"= "citizen_voting_age_population_citizen_18_and_over_population_male")
@@ -81,9 +81,21 @@ race_df$shareof_male <- race_df$`malepop_18+`/race_df$`pop_18+`
 race_df$shareof_other <- race_df$other/race_df$total_population
 
 #merge datasets 
-crime_df <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/DC/dc_num_crimes_ward_2020.csv")
-names(crime_df) <- to_snake_case(names(crime_df))
-crime_race <- crime_df %>% inner_join(race_df,by="ward")
+violent_crime_df <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/DC/num_violentcrimes_ward_2020.csv")
+names(violent_crime_df) <- to_snake_case(names(violent_crime_df))
+violent_crime_df <- violent_crime_df  %>% rename("vcrime_count"="count") 
+View(violent_crime_df)
+violent_crime_race <- violent_crime_df %>% inner_join(race_df, by="ward")
+
+violent_crime_race$vcrime_rate <- (violent_crime_race$vcrime_count/violent_crime_race$total_population)*100000
+
+View(violent_crime_race)
+esquisser(violent_crime_race)
+
+write_csv(violent_crime_df,"/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/violent_crime_df")
+
+
+
 
 esquisser(crime_race)
                                  
