@@ -90,7 +90,7 @@ unemployment_fig = px.bar(
     title="Unemployment Rate per Ward",
     hover_name="statistic",
     hover_data={"statistic": False},
-    labels={"value": "%", "ward": "Ward", "statistic": "Statistic"},
+    labels={"value": "Unemployment Rate(%)", "ward": "Ward", "statistic": "Statistic"},
 )
 unemployment_fig.update_xaxes(type="category")
 unemployment_fig.update_layout(
@@ -110,7 +110,11 @@ violent_crime_per_100K_fig = px.bar(
     title="Crime Per 100K per Ward",
     hover_name="statistic",
     hover_data={"statistic": False},
-    labels={"value": "Per 100K", "ward": "Ward", "statistic": "Statistic"},
+    labels={
+        "value": "Crimes Per 100K Population",
+        "ward": "Ward",
+        "statistic": "Statistic",
+    },
 )
 violent_crime_per_100K_fig.update_xaxes(type="category")
 violent_crime_per_100K_fig.update_layout(
