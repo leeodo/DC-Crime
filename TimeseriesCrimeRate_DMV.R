@@ -51,7 +51,7 @@ fig <- fig %>% layout(title = list(text = "
 
 fig
 
-htmlwidgets::saveWidget(as_widget(fig), "/Volumes/GoogleDrive/My Drive/project-spring-2022-projectgroup33/TimeseriesCrimeRate_DMV.html")
+htmlwidgets::saveWidget(as_widget(fig), "html_viz/TimeseriesCrimeRate_DMV.html")
 
 
 
