@@ -690,6 +690,10 @@ blockquote p {
 ********************************************************* */
 
 .recent-wrap {
+  text-align: left;
+}
+
+.work-wrap {
   text-align: center;
 }
 
