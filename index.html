@@ -222,6 +222,43 @@
                 <li>The three datasets are summarized in 8 wards and these data are later joined to existing datasets
                     using the ward number.</li>
             </ul>
+
+            <h3>Methods <span>&#8212;</span> If you want get into technical details</h3>
+
+            <h4>DC Crime Map</h4>
+            <p>This choropleth is meant to show the difference of overall crime situation across eight wards in
+                Washington,D.C.</p>
+            <P>The data was first aggregated to the total number of crimes happened in 2020 per ward and then the crime
+                rate was derived. Lastly, the aggregated data has been merged with the geojson file.</P>
+            <p>The color of each ward is based on the absolute value of crimes. A legend of colormap is provided for
+                reference. This map has a hover feature. When users hover their mouse over the map, users can see
+                specific details of crime statistics.</p>
+
+            <h4>DC Violent Crime Map</h4>
+            <p>This choropleth is meant to show the difference of violent crime situation across eight wards in
+                Washington, D.C.</p>
+            <p>The data was first filtered by crime type to pick out violent crimes only then aggregated to the total
+                number of crimes happened in 2020 per ward. Then the crime rate was derived. Lastly, the aggregated data
+                has been merged with the geojson file.</p>
+            <P>The color of each ward is based on the absolute value of crimes. A legend of colormap is provided for
+                reference. This map has a hover feature. When users hover their mouse over the map, users can see
+                specific details of crime statistics.</P>
+
+            <h4>DC Marker Clusters Map</h4>
+            <P>This visualization is meant to show a more detailed distribution of crimes happened in DC. This used the
+                same data as the overall crime choropleth since it contains longitude and latitude.</P>
+            <p>The markers are added one-by-one and the leaflet package is smart enough to aggregate markers based on
+                location.</p>
+            <p>The map has many circles zooming in and out. The number on the circle represents the number of crimes
+                happened in the area. When users hover their mouse on a circle, it will show a polygon corresponding to
+                the area the specific circle represents. Furthermore, the color of circle is a gradient of number as
+                green is low and orange is high.</p>
+
+            <h4>DC Crime Heatmap</h4>
+            <p>This heatmap is meant to show the density of crimes in Washington D.C., the folium heatmap function takes
+                in location information like the marker cluster does. It automatically draws the density using color.
+            </p>
+            <p>This map is continues in area and the density is represented from light orange(low) and red(high)</p>
         </div>
 
 
