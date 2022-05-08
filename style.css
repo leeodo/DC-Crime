@@ -525,6 +525,30 @@ blockquote p {
   background-image: url('images/background7.jpeg');
 }
 
+.parallax4 {
+  background-image: url('images/background3.jpeg');
+}
+
+.parallax5 {
+  background-image: url('images/background5.jpeg');
+}
+
+.parallax6 {
+  background-image: url('images/background6.jpeg');
+}
+
+.parallax7 {
+  background-image: url('images/background7.jpeg');
+}
+
+.parallax8 {
+  background-image: url('images/background8.jpeg');
+}
+
+.parallax9 {
+  background-image: url('images/background1.jpeg');
+}
+
 .parallax-section .content, .top-slider .content-header, .home-slider {
   margin: 0 auto;
   text-align: center;
@@ -541,6 +565,31 @@ blockquote p {
 .parallax3 .content {
   padding: 70px 0;
 }
+
+.parallax4 .content {
+  padding: 70px 0;
+}
+
+.parallax5 .content {
+  padding: 70px 0;
+}
+
+.parallax6 .content {
+  padding: 70px 0;
+}
+
+.parallax7 .content {
+  padding: 70px 0;
+}
+
+.parallax8 .content {
+  padding: 70px 0;
+}
+
+.parallax9 .content {
+  padding: 70px 0;
+}
+
 
 .top-slider .content-header {
   padding: 130px 0;
