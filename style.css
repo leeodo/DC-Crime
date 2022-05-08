@@ -511,7 +511,7 @@ blockquote p {
 .parallax-section {
   z-index: -1;
   clear: both;
-  background-image: url('images/home.jpg');
+  background-image: url('images/background3.jpeg');
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -526,7 +526,7 @@ blockquote p {
 }
 
 .parallax4 {
-  background-image: url('images/background3.jpeg');
+  background-image: url('images/background2.jpeg');
 }
 
 .parallax5 {
