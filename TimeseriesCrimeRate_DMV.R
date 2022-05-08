@@ -15,7 +15,7 @@ library(scales)
 library(animation)
 
 
-states_df <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/US by State/state_crime.csv")
+states_df <- read_csv("data/state_crime.csv")
 names(states_df) <- to_snake_case(names(states_df))
 str(states_df)
 

@@ -20,7 +20,7 @@ esquisser(violent_crime_race)
 #creating linked graph based on 
 #https://www.infoworld.com/article/3626911/easy-interactive-ggplot-graphs-in-r-with-ggiraph.html
 
-violent_crime_race <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/violent_crime_race")
+violent_crime_race <- read_csv("data/violent_crime_race")
 view(violent_crime_race)
 
 t <- list(
@@ -41,8 +41,8 @@ p1 <- violent_crime_race %>%
   plot_ly(x= ~shareof_black, y= ~vcrime_rate) 
 p1  <- add_markers(p1, color = I("#990000"), size = 2)
 vcrime_byrace <- subplot(p1, p3) %>% 
-  layout(title = list(text = 'Violent Crime Rate per 100,000 People', font=t),
-         yaxis = list(title = 'Violent Crime Rate per 100,000 People', font = f))
+  layout(title = list(text = 'Violent Crime Rate per 100,000 People by Demographic ', font=t),
+         yaxis = list(title = 'Violent Crime Rate per 100,000 People by Demographic', font = f))
 annotations = list( 
   list( 
     x = 0.2,  
@@ -64,4 +64,5 @@ annotations = list(
     anchor = "bottom",  
     showarrow = FALSE
   ))
-vcrime_byrace %>% layout(annotations = annotations)
+fig <- vcrime_byrace %>% layout(annotations = annotations)
+htmlwidgets::saveWidget(as_widget(fig), "html_viz/linked_race and crime.html")
