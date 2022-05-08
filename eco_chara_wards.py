@@ -6,6 +6,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
+from plotly.subplots import make_subplots
 
 pio.renderers.default = "browser"
 pio.templates.default = "plotly_white"
@@ -112,7 +113,6 @@ unemployment_fig.update_yaxes(
     showgrid=False, showline=True, linecolor="#000000", linewidth=1
 )
 unemployment_fig.update_layout(font_family="serif", font_size=16, title_x=0.5)
-unemployment_fig.write_html("html_viz/dc_unemployment_fig.html")
 
 # %%
 # graph violent crime per 100k population per wards
@@ -146,4 +146,27 @@ violent_crime_per_100K_fig.update_yaxes(
     linewidth=1,
 )
 violent_crime_per_100K_fig.update_layout(font_family="serif", font_size=16, title_x=0.5)
-violent_crime_per_100K_fig.write_html("html_viz/dc_violent_crime_per_100K_fig.html")
+# %%
+
+# For as many traces that exist per Express figure, get the traces from each plot and store them in an array.
+# This is essentially breaking down the Express fig into it's traces
+figure1_traces = []
+figure2_traces = []
+for trace in range(len(unemployment_fig["data"])):
+    figure1_traces.append(unemployment_fig["data"][trace])
+for trace in range(len(violent_crime_per_100K_fig["data"])):
+    figure2_traces.append(violent_crime_per_100K_fig["data"][trace])
+
+# Create a 1x2 subplot
+this_figure = make_subplots(rows=1, cols=2)
+
+# Get the Express fig broken down as traces and add the traces to the proper plot within in the subplot
+for traces in figure1_traces:
+    this_figure.append_trace(traces, row=1, col=1)
+for traces in figure2_traces:
+    this_figure.append_trace(traces, row=1, col=2)
+
+# the subplot as shown in the above image
+this_figure.write_html("html_viz/dc_unemployment_crime.html")
+
+# %%
