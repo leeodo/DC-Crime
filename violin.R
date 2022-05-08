@@ -8,8 +8,9 @@ library(ggthemes)
 df <- read_csv("data/dc_num_crimes_ward_type.csv")
 
 
-  df %>%
-  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2021-01-01" ) %>%
+
+df %>%
+  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2021-01-01") %>%
   ggplot() +
   aes(y = `offense-text`, x = REPORT_DAT, fill = `offense-text`, color = `offense-text`) +
   geom_violin(adjust = .001, scale = "width") +
