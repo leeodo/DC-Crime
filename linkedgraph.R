@@ -13,58 +13,55 @@ library(gganimate) #for animating your plot
 library(scales)
 library(animation)
 library(ggiraph)
-
+library(remotes)
+library(crosstalk)
+#library(DCmapR)
+esquisser(violent_crime_race)
+#creating linked graph based on 
+#https://www.infoworld.com/article/3626911/easy-interactive-ggplot-graphs-in-r-with-ggiraph.html
 
 violent_crime_race <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/violent_crime_race")
 view(violent_crime_race)
-violent_crime_race$ward <- c('Ward 1', 'Ward 2', 'Ward 3', 'Ward 4', 'Ward 5', 'Ward 6', 'Ward 7', 'Ward 8')
 
+t <- list(
+  family = "sans serif",
+  size = 16L,
+  face = 'bold')
+f <- list(
+  family = "sans serif",
+  size = 13L,
+  face = 'bold')
 
+shared_data <- SharedData$new(violent_crime_race)
+p3 <- violent_crime_race  %>%
+  plot_ly(x= ~shareof_white, y= ~vcrime_rate) 
+p3 <- add_markers(p3, color = I("#d7301f"), size = 2)
 
-library(ggplot2)
-bar_graph_data_recent <- violent_crime_race %>%
-  mutate(
-    tooltip_text = paste0(toupper(ward), "\n", 
-                          vcrime_rate, "\n")
-  )
-
-vcrime_byward <- ggplot(bar_graph_data_recent, 
-                           aes(x = reorder(ward, vcrime_rate), 
-                               y = vcrime_rate,
-                               tooltip = tooltip_text, data_id = ward #<<
-                           )) +
-  geom_col_interactive(color = "black", fill="#CB3838", size = 0.5) +  #<<
-  labs(x = "Wards ", 
-       y = "Violent Crime Rate per 100,000 People", title = "Violent Crime Rate per 100,000 People in Washington, DC by Wards, 2020") +
-  ggthemes::theme_tufte() +
-  theme(plot.title = element_text(size = 16L, face = "bold"), axis.title.y = element_text(size = 13L, 
-                                                                                          face = "bold", hjust = 0), axis.title.x = element_text(size = 13L, face = "bold", hjust = 0)) 
-
-girafe(ggobj = vcrime_byward, width_svg = 5, height_svg = 4)
-
-
-
-bar_graph_age <- violent_crime_race %>%
-  mutate(
-    tooltip_text = paste0(toupper(ward), "\n", 
-                          shareof_popunder18, "%")
-  )
-
-popunder18_byward <- ggplot(bar_graph_age, 
-                        aes(x = reorder(ward, shareof_popunder18), 
-                            y = shareof_popunder18,
-                            tooltip = tooltip_text, data_id = ward #<<
-                        )) +
-  label_percent()(shareof_popunder18)+
-  geom_col_interactive(color = "black", fill="#CB3838", size = 0.5) +  #<<
-  labs(x = "Wards ", 
-       y = "Share of Population Under 18 (%)", title = "Share of Population under 18 in Washington, DC by Wards, 2020") +
-  ggthemes::theme_tufte() +
-  theme(plot.title = element_text(size = 16L, face = "bold"), axis.title.y = element_text(size = 13L, 
-                                                                                          face = "bold", hjust = 0), axis.title.x = element_text(size = 13L, face = "bold", hjust = 0)) 
-
-girafe(ggobj = popunder18_byward, width_svg = 5, height_svg = 4)
-
-girafe(ggobj = vcrime_byward + popunder18_byward, 
-       width_svg = 8, height_svg = 4)  %>% 
-  girafe_options(opts_hover(css = "fill:cyan;"))
+p1 <- violent_crime_race %>%
+  plot_ly(x= ~shareof_black, y= ~vcrime_rate) 
+p1  <- add_markers(p1, color = I("#990000"), size = 2)
+vcrime_byrace <- subplot(p1, p3) %>% 
+  layout(title = list(text = 'Violent Crime Rate per 100,000 People', font=t),
+         yaxis = list(title = 'Violent Crime Rate per 100,000 People', font = f))
+annotations = list( 
+  list( 
+    x = 0.2,  
+    y = -.08,  
+    text = "Share of Black (%)", font = f,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    yanchor = "bottom",  
+    showarrow = FALSE 
+  ),  
+  list( 
+    x = 0.8,  
+    y = -0.08,  
+    text = "Share of White (%)" , font= f,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    anchor = "bottom",  
+    showarrow = FALSE
+  ))
+vcrime_byrace %>% layout(annotations = annotations)
