@@ -298,43 +298,7 @@
                     using the ward number.</li>
             </ul>
 
-            <h3>Methods </h3>
 
-            <h4>DC Crime Map</h4>
-            <p>This choropleth is meant to show the difference in the overall crime situation across eight wards in
-                Washington, D.C.</p>
-            <P>The data was first aggregated to the total number of crimes happened in 2020 per ward and then the crime
-                rate was derived. Lastly, the aggregated data has been merged with the geojson file.</P>
-            <p>The color of each ward is based on the absolute value of crimes. A legend of colormap is provided for
-                reference. This map has a hover feature. When users hover their mouse over the map, users can see
-                specific details of crime statistics.</p>
-
-            <h4>DC Violent Crime Map</h4>
-            <p>This choropleth is meant to show the difference in violent crime situations across eight wards in
-                Washington, D.C.</p>
-            <p>The data was first filtered by crime type to pick out violent crimes only then aggregated to the total
-                number of crimes happened in 2020 per ward. Then the crime rate was derived. Lastly, the aggregated data
-                has been merged with the geojson file.</p>
-            <P>The color of each ward is based on the absolute value of crimes. A legend of colormap is provided for
-                reference. This map has a hover feature. When users hover their mouse over the map, users can see
-                specific details of crime statistics.</P>
-
-            <h4>DC Marker Clusters Map</h4>
-            <P>This visualization is meant to show a more detailed distribution of crimes happened in DC. This used the
-                same data as the overall crime choropleth since it contains longitude and latitude.</P>
-            <p>The markers are added one by one and the leaflet package is smart enough to aggregate markers based on
-                location.</p>
-            <p>The map has many circles zooming in and out. The number on the circle represents the number of crimes
-                happened in the area. When users hover their mouse on a circle, it will show a polygon corresponding to
-                the area the specific circle represents. Furthermore, the color of the circle is a gradient of numbers
-                as
-                green is low and orange is high.</p>
-
-            <h4>DC Crime Heatmap</h4>
-            <p>This heatmap is meant to show the density of crimes in Washington D.C., the folium heatmap function takes
-                in location information as the marker cluster does. It automatically draws the density using color.
-            </p>
-            <p>This map is continuous in the area and the density is represented by light orange(low) and red(high)</p>
         </div>
     </div>
     <!-- End Data Methods Second -->
@@ -477,7 +441,22 @@
                             <br>
                             <iframe src="html_viz/marker_cluster_2020.html" height="700" width="1100"></iframe>
                         </div>
-                        <h8>Figure 3: Marker Cluster 2020</h8>
+                        <h8>Figure 3: Marker Cluster 2020</h8><br>
+                        <h8>Method: This visualization is meant to show a more detailed distribution of crimes happened
+                            in DC.
+                            This used the
+                            same data as the overall crime choropleth since it contains longitude and latitude. The
+                            markers are
+                            added one by one and the leaflet package is smart enough to aggregate markers based on
+                            location. The map has many circles zooming in and out. The number on the circle represents
+                            the number of
+                            crimes
+                            happened in the area. When users hover their mouse on a circle, it will show a polygon
+                            corresponding to
+                            the area the specific circle represents. Furthermore, the color of the circle is a gradient
+                            of numbers
+                            as
+                            green is low and orange is high.</h8>
                         <br>
                         <br>
                         <p>As shown in figure 3, there were a total of 27,932 crimes in Washington, DC in 2020. When
@@ -517,7 +496,14 @@
                         <div class="recent-work">
                             <iframe src="html_viz/heatmap_2020.html" height="700" width="1100"></iframe>
                         </div>
-                        <h8>Figure-4: Heat Map Of Crime Counts in Washington, DC</h8>
+                        <h8>Figure-4: Heat Map Of Crime Counts in Washington, DC</h8><br>
+                        <h8>Method: This heatmap is meant to show the density of crimes in Washington D.C., the folium
+                            heatmap
+                            function takes
+                            in location information as the marker cluster does. It automatically draws the density using
+                            color. This
+                            map is continuous in the area and the density is represented by light orange(low) and
+                            red(high)</h8>
                         <br>
                         <br>
                         <p>Figure 4 is a different view of crime numbers in Washington, DC, represented by a heat map.
@@ -544,7 +530,21 @@
                         <div class="recent-work">
                             <iframe src="html_viz/dc_crime_map_2020.html" height="700" width="1100"></iframe>
                         </div>
-                        <h8>Figure-5: Washington, DC crime by Wards</h8>
+                        <h8>Figure-5: Washington, DC crime by Wards</h8><br>
+                        <h8>Method: This choropleth is meant to show the difference in violent crime situations across
+                            eight
+                            wards in
+                            Washington, D.C. The data was first filtered by crime type to pick out violent crimes only
+                            then
+                            aggregated to the total number of crimes happened in 2020 per ward. Then the crime rate was
+                            derived.
+                            Lastly, the aggregated data has been merged with the geojson file. The color of each ward is
+                            based on
+                            the absolute value of crimes. A legend of colormap is provided for reference. This map has a
+                            hover
+                            feature. When users hover their mouse over the map, users can see specific details of crime
+                            statistics.
+                        </h8>
                         <br>
                         <br>
                         <p>The District of Columbia is divided into eight wards. Each ward has approximately 75,000
@@ -709,7 +709,11 @@
                             <br>
                             <h4><strong>&bull; Economics Characteristics</strong></h4>
                             <iframe src="html_viz/dc_income_fig.html" height="700" width="1100"></iframe>
-                            <h8>Figure-12: Mean and Median Income per Ward</h8>
+                            <h8>Figure-12: Mean and Median Income per Ward</h8><br>
+                            <h8>Method: This is a side-by-side barplot comparing the mean and median income of each
+                                ward. Each ward has two barplot that sticks together so that the audience can easily
+                                identify the corresponding ward. This plot also has a hover function which will show the
+                                exact value of each bar.</h8>
                             <br>
                             <br>
                             <p>The highest income area ward 3 has the biggest gap between mean and median income.
@@ -724,7 +728,7 @@
                 </div>
 
 
-                <!-- figure 1X -->
+                <!-- figure 13 -->
                 <div class="mix Sociology">
                     <div class="content">
                         <div class="recent-work">
@@ -732,7 +736,10 @@
                             <h4><strong>&bull; Racial Characteristics</strong></h4>
                             <iframe src="html_viz/dc_unemployment_crime.html" height="700" width="1100"></iframe>
                             <h8>Figure-13: DC Unemployment and Violent Crime </h8><br>
-                            <h8>Method: This is regular two barplots in plotly subplots with a hover feature.
+                            <h8>Method: This is a side-by-side barplot using subplots in plotly comparing the
+                                Unemployment and crime of each
+                                ward. This plot also has a hover function which will show the
+                                exact value of each bar.
                             </h8>
                             <br>
                             <br>
