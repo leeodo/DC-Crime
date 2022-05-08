@@ -158,13 +158,41 @@ for trace in range(len(violent_crime_per_100K_fig["data"])):
     figure2_traces.append(violent_crime_per_100K_fig["data"][trace])
 
 # Create a 1x2 subplot
-this_figure = make_subplots(rows=1, cols=2)
+this_figure = make_subplots(
+    rows=1,
+    cols=2,
+    subplot_titles=(
+        "<b>Unemployment Rate per Ward(%)</b>",
+        "<b>Crime Per 100K per Ward</b>",
+    ),
+)
 
 # Get the Express fig broken down as traces and add the traces to the proper plot within in the subplot
 for traces in figure1_traces:
     this_figure.append_trace(traces, row=1, col=1)
 for traces in figure2_traces:
     this_figure.append_trace(traces, row=1, col=2)
+
+
+# Mimicking the tufte style
+this_figure.update_yaxes(
+    showgrid=False,
+    showline=True,
+    linecolor="#000000",
+    linewidth=1,
+)
+
+violent_crime_per_100K_fig.update_xaxes(
+    type="category",
+    showgrid=False,
+    showline=True,
+    linecolor="#000000",
+    linewidth=1,
+)
+
+this_figure.update_layout(
+    font_family="serif", font_size=16, title_x=0.5, showlegend=False
+)
 
 # the subplot as shown in the above image
 this_figure.write_html("html_viz/dc_unemployment_crime.html")
