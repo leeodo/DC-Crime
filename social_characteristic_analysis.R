@@ -87,13 +87,15 @@ graph <- ggplot(df) +
     fill = "Statistic",
     color = "Statistic"
   ) +
-  ggthemes::theme_pander() +
+  ggthemes::theme_tufte() +
   theme(plot.title = element_text(size = 16L, face = "bold", hjust = 0.5),
         plot.subtitle = element_text(size = 15L, face = "italic", hjust = 0.5),
         plot.caption = element_text(size = 14L),
         axis.title.y = element_text(size = 13L, face = "bold"),
         axis.title.x = element_text(size = 13L, face = "bold"),
-        axis.text = element_text(size = 11L)) +
+        axis.text.x = element_text(face = "bold", size = 11L),
+        axis.text.y = element_text(face = "bold", size = 11L),
+        legend.text = element_text(size = 11L)) +
   theme(strip.text.x = element_text(size = 11L, face = "bold")) +
   theme(strip.text.y = element_text(size = 11L))
 
@@ -153,16 +155,55 @@ graph2 <- ggplot(df2) +
     title = "Education Status Breakdown by Ward"
   ) +
   coord_flip() +
-  ggthemes::theme_pander() +
+  ggthemes::theme_tufte() +
   theme(plot.title = element_text(size = 16L, face = "bold", hjust = 0.5),
         plot.subtitle = element_text(size = 15L, face = "italic", hjust = 0.5),
         plot.caption = element_text(size = 14L),
         axis.title.y = element_text(size = 13L, face = "bold"),
         axis.title.x = element_text(size = 13L, face = "bold"),
-        axis.text = element_text(size = 12L)) +
+        axis.text.x = element_text(face = "bold", size = 11L),
+        axis.text.y = element_text(face = "bold", size = 11L),
+        legend.text = element_text(size = 11L)) +
   theme(strip.text.x = element_text(size = 11L, face = "bold")) +
   theme(strip.text.y = element_text(size = 11L))
 
 graph2 <- ggplotly(graph2, tooltip = c("colour", "x", "weight"))
 htmlwidgets::saveWidget(graph2,
                         "html_viz/Education_Status_Breakdown.html")
+
+# graph 3
+df3 <- read_csv("data/dc_num_crimes_ward_type.csv") %>%
+  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2020-12-31") %>%
+  #aggregate(REPORT_DAT) %>%
+  group_by(REPORT_DAT, `offense-text`) %>% mutate(count = n())
+  
+
+vis <-
+  df3 %>%
+  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2021-01-01") %>%
+  ggplot() +
+  aes(y = `offense-text`, x = REPORT_DAT, fill = `offense-text`, colour = `offense-text`) +
+  geom_violin(adjust = .001, scale = "width") +
+  scale_fill_hue(direction = 1) +
+  scale_color_hue(direction = 1) +
+  scale_fill_brewer(palette = "OrRd") +
+  scale_color_brewer(palette = "OrRd") +
+  labs(
+    y = "Type of Crimes", x = "Time",
+    title = "Distributions of Crimes in DC 2020", fill = "Type of Crimes", colour = "Type of Crimes"
+  ) +
+  ggthemes::theme_tufte() +
+  theme(
+    plot.title = element_text(size = 16L, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 15L, face = "italic", hjust = 0.5),
+    plot.caption = element_text(size = 14L),
+    axis.title.y = element_text(size = 13L, face = "bold"),
+    axis.title.x = element_text(size = 13L, face = "bold"),
+    axis.text.x = element_text(face = "bold", size = 11L),
+    axis.text.y = element_text(face = "bold", size = 11L),
+    legend.text = element_text(size = 11L)
+  ) +
+  theme(strip.text.x = element_text(size = 11L, face = "bold")) +
+  theme(strip.text.y = element_text(size = 11L))
+
+ggplotly(vis)
