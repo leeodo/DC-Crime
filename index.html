@@ -241,7 +241,7 @@
 
             <h3>Data Preprocessing</h3>
             <p>We preprocessed the data to make it easier to use. We used the following methods for each file:</p>
-            <br>
+
             <h4>DC Crime Dataset</h4>
             <ul>
                 <li>After reading the data, the columns that are “datetime” type are converted to the corresponding
@@ -252,6 +252,7 @@
                 <li>The latest data on social characteristics are in the year 2020, thus above tables were later
                     filtered for the year 2020 only.</li>
             </ul>
+
             <h4><a href="https://opendata.dc.gov/apps/demographic-characteristics-of-dc-wards/explore">Demographic</a>,
                 <a href="https://opendata.dc.gov/apps/economic-characteristics-of-dc-wards/explore">Economic</a>,
                 <a href="https://opendata.dc.gov/apps/economic-characteristics-of-dc-wards/explore">Housing</a>,
@@ -263,7 +264,7 @@
                     using the ward number.</li>
             </ul>
 
-            <h3>Methods <span>&#8212;</span> If you want get into technical details</h3>
+            <h3>Methods </h3>
 
             <h4>DC Crime Map</h4>
             <p>This choropleth is meant to show the difference in the overall crime situation across eight wards in
@@ -358,21 +359,81 @@
             <!-- End of Filter section -->
             <div class="portfolio-items">
 
-
+                <!-- figure 1 -->
                 <div class="mix Sociology">
                     <div class="content">
                         <div class="recent-work">
-                            <img src="static_viz/dc_2014_2021.png">
-
-
+                            <h7>DMV CRIMES CONDITION </h7>
+                            <h4><b>Q1: What do crime rates look like in Washington, DC when compared to neighboring states Maryland and Virginia 
+                                throughout time?</b></h4>
+                            <iframe src="html_viz/ViolentCrime_DMV.html" height="700" width="1100"></iframe>
                         </div>
-                        <p>Figure-2: time series</p>
-                        <p>writeup</p>
+                        <p>Figure-1: Crime rates in Washington, DC, Maryland, & Virginia 1960-2019</p>
+                        <br>
+                        <br>
+                        <p>Washington, DC, significantly has the highest rate of crime when compared to neighboring states, Maryland and Virginia. 
+                            Compared to Maryland and Virginia, the crime rates in Washington, DC have had much more fluctuation throughout time. 
+                            As seen in Figure 1, while crime rates were fairly low in 1960 in Washington, DC, Maryland, and Virginia, Washington, 
+                            DC’s crime rate spiked in the 1970s, while crime rates in Virginia and Maryland remained relatively low. We see a similar 
+                            spike in the late 1970s, followed by a sharp decline in the early 1980s. We see the same sharp rise and a sharp decline from 
+                            the mid - 1980s to the 1990s. Crime rates for Washington, DC, Maryland, and Virginia had a sharp decline since the mid-1990, 
+                            most likely as a result of the <a href="https://www.ncjrs.gov/txtfiles/billfs.txt"> Violent Crime Control Act and Law Enforcement Act of 1994</a> 
+                            passed by president Bill Clinton. 
+                            Despite the decrease in crime most likely triggered by the crime bill, Washington, DC continues to have higher crime rates 
+                            than neighboring states Maryland and Virginia. </p>
                         <br><br><br><br>
                     </div>
                 </div>
 
 
+               <!-- figure 2 -->
+                <div class="mix Sociology">
+                    <div class="content">
+                        <div class="recent-work">
+                            <h7>DC CRIMES CONDITION </h7>
+                            <h4><b> How does DC’s crime rates change in the past?</b></h4>
+                            <img src="static_viz/dc_2014_2021.png">
+                        </div>
+                        <p>Figure-2: Time Series Line Graph</p>
+                        <br>
+                        <br>
+                        <p>Since the crime rates in Washington, DC are way higher than in Virginia and Maryland throughout the time, 
+                            we decided to take a closer look at only DC’s crime rates. From a holistic approach, we plotted the time series 
+                            line plot of crime incidents in DC by ward from 2014 to 2021. As shown in figure 2, Ward 2 has been on the top of 
+                            the ling graph throughout the years, which means Ward 2 has the highest crime incidents in DC, whereas Ward 3 has 
+                            the lowest crime incidents in DC. 
+                            <br>
+                            From figure 2, it is worth mentioning the spike of crime incidents in June 2020, during the 
+                            <a href="https://en.wikipedia.org/wiki/George_Floyd_protests_in_Washington,_D.C.">George Floyd protests 
+                                in Washington DC</a>, when riots, protests, and acts of violence were happening for more than a month. </p>
+                        <br><br><br><br>
+                    </div>
+                </div>
+
+                <!-- figure 3 -->
+                <div class="mix Sociology">
+                    <div class="content">
+                        <div class="recent-work">
+                            <h7>DC CRIMES IN 2020</h7>
+                            <h4><b>What happened to the crime situation in DC in 2020? What are the crime rates in Washington, DC? 
+                                How do crime rates vary across neighborhoods and different wards in the city?</b></h4>
+                            <iframe src="html_viz/marker_cluster_2020.html" height="700" width="1100"></iframe>
+                            </div>
+                        <p>Figure 3:  Marker Cluster 2020</p>
+                        <br>
+                        <br>
+                        <p>Since the crime rates in Washington, DC are way higher than in Virginia and Maryland throughout the time, 
+                            we decided to take a closer look at only DC’s crime rates. From a holistic approach, we plotted the time series 
+                            line plot of crime incidents in DC by ward from 2014 to 2021. As shown in figure 2, Ward 2 has been on the top of 
+                            the ling graph throughout the years, which means Ward 2 has the highest crime incidents in DC, whereas Ward 3 has 
+                            the lowest crime incidents in DC. 
+                            <br>
+                            From figure 2, it is worth mentioning the spike of crime incidents in June 2020, during the 
+                            <a href="https://en.wikipedia.org/wiki/George_Floyd_protests_in_Washington,_D.C.">George Floyd protests 
+                                in Washington DC</a>, when riots, protests, and acts of violence were happening for more than a month. </p>
+                        <br><br><br><br>
+                    </div>
+                </div>
 
                 <div class="mix general">
                     <div class="content">

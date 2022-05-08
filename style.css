@@ -65,7 +65,7 @@ a, img, .overlay, input, textarea, .plan-wrap p, .filters .filter {
 }
 
 body {
-  font-size: 1em;
+  font-size: 1.1em;
   line-height: 1.7em;
   color: #777777;
   font-weight: normal;
@@ -75,13 +75,17 @@ body, input, textarea {
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6, .navigation a, .btn, .filters .filter {
+p {
+  font-size: 1.1em;
+ }
+
+h1,h2,h3,h4,h5,h6,h7 .navigation a, .btn, .filters .filter {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,h7 {
   position: relative;
-  margin: 1em 0 1.4em;
+  margin: 1.4em 0 1em;
   color: #484f58;
 }
 
@@ -106,7 +110,12 @@ h3 {
 
 h4,h5,h6 {
   font-size: 1.125em;
-  line-height: .5em;
+  line-height: 1.3em;
+}
+
+h7 {
+  font-size: 1.6em;
+  line-height: 1.2em;
 }
 
 blockquote {
@@ -681,12 +690,12 @@ blockquote p {
 
 .recent-work {
   background: #6578bc; /* Old browsers */
-  background: -moz-linear-gradient(left,  #6578bc 0%, #1abc9c 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#6578bc), color-stop(100%,#1abc9c)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left,  #6578bc 0%,#1abc9c 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left,  #6578bc 0%,#1abc9c 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(left,  #6578bc 0%,#1abc9c 100%); /* IE10+ */
-  background: linear-gradient(to right,  #6578bc 0%,#1abc9c 100%); /* W3C */
+  background: -moz-linear-gradient(left,  #ffffff 0%, #ffffff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #ffffff 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #ffffff 0%,#ffffff 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #ffffff 0%,#ffffff 100%); /* IE10+ */
+  background: linear-gradient(to right,  #ffffff 0%,#ffffff 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6578bc', endColorstr='#1abc9c',GradientType=1 ); /* IE6-9 */
 
   position: relative;
@@ -1097,7 +1106,7 @@ blockquote p {
 }
 
 .plan-wrap .options li {
-  font-weight: 700;
+  font-weight: 1.1em;
   line-height: 2.5;
   color: #484f58;
 }
@@ -1307,7 +1316,7 @@ address i {
 }
 
 ul.nested-comments  ul li {
-  margin: 1em 3em;
+  margin: 1.1em 3em;
 }
 
 .comment p {
@@ -1684,7 +1693,7 @@ footer p, footer a {
   }
 
   .team-social a i {
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 3px;
   }
 }
