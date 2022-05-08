@@ -163,7 +163,7 @@ this_figure = make_subplots(
     cols=2,
     subplot_titles=(
         "<b>Unemployment Rate per Ward(%)</b>",
-        "<b>Crime Per 100K per Ward</b>",
+        "<b>Violent Crime Per 100K per Ward</b>",
     ),
 )
 
