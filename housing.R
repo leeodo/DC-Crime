@@ -174,4 +174,4 @@ p <-
     )
   )
 
-htmlwidgets::saveWidget(as_widget(p), "housing.html")
+htmlwidgets::saveWidget(as_widget(p), "html_viz/housing.html", selfcontained = TRUE)
