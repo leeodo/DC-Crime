@@ -357,7 +357,7 @@
                 </ul>
             </div>
             <!-- End of Filter section -->
-            <div class="portfolio-items">
+            <div class="portfolio-items"></b>
 
                 <!-- figure 1 -->
                 <div class="mix Sociology">
@@ -368,7 +368,7 @@
                                 throughout time?</b></h4>
                             <iframe src="html_viz/ViolentCrime_DMV.html" height="700" width="1100"></iframe>
                         </div>
-                        <p>Figure-1: Crime rates in Washington, DC, Maryland, & Virginia 1960-2019</p>
+                        <h8>Figure-1: Crime rates in Washington, DC, Maryland, & Virginia 1960-2019</h8>
                         <br>
                         <br>
                         <p>Washington, DC, significantly has the highest rate of crime when compared to neighboring states, Maryland and Virginia. 
@@ -391,10 +391,10 @@
                     <div class="content">
                         <div class="recent-work">
                             <h7>DC CRIMES CONDITION </h7>
-                            <h4><b> How does DC’s crime rates change in the past?</b></h4>
+                            <h4><b>Q2: How does DC’s crime rates change in the past?</b></h4>
                             <img src="static_viz/dc_2014_2021.png">
                         </div>
-                        <p>Figure-2: Time Series Line Graph</p>
+                        <h8>Figure-2: Time Series Line Graph</h8>
                         <br>
                         <br>
                         <p>Since the crime rates in Washington, DC are way higher than in Virginia and Maryland throughout the time, 
@@ -415,50 +415,133 @@
                     <div class="content">
                         <div class="recent-work">
                             <h7>DC CRIMES IN 2020</h7>
-                            <h4><b>What happened to the crime situation in DC in 2020? What are the crime rates in Washington, DC? 
+                            <h4><b>Q3: What happened to the crime situation in DC in 2020? What are the crime rates in Washington, DC? 
                                 How do crime rates vary across neighborhoods and different wards in the city?</b></h4>
+                            <p>The spike of crime incidents in June 2020 caught our attention, we then wondered the geospatial distributions 
+                                of the crimes in DC  and mapped several heatmaps to answer our data science questions.</p>
+                            <br>
                             <iframe src="html_viz/marker_cluster_2020.html" height="700" width="1100"></iframe>
                             </div>
-                        <p>Figure 3:  Marker Cluster 2020</p>
+                        <h8>Figure 3:  Marker Cluster 2020</h8>
                         <br>
                         <br>
-                        <p>Since the crime rates in Washington, DC are way higher than in Virginia and Maryland throughout the time, 
-                            we decided to take a closer look at only DC’s crime rates. From a holistic approach, we plotted the time series 
-                            line plot of crime incidents in DC by ward from 2014 to 2021. As shown in figure 2, Ward 2 has been on the top of 
-                            the ling graph throughout the years, which means Ward 2 has the highest crime incidents in DC, whereas Ward 3 has 
-                            the lowest crime incidents in DC. 
+                        <p>As shown in figure 3, there were a total of 27,932 crimes in Washington, DC in 2020. When zoomed in, the crime count 
+                            is divided to the east of the Anacostia River and west of the Anacostia River at 755 and 27,177 crime counts, 
+                            respectively.  When we continue to zoom in we're able to see crime counts by neighborhood and even down to crime 
+                            counts by streets. Using the information gained from figure 2, individuals, businesses,and city officials are able 
+                            to understand crime occurrences better. 
+                            
+                            <br>
+
+                            For example, imagen a potential student deciding between attending American University, Howard University, 
+                            Georgetown University, and George Washington University. This particular student factors in crime occurrence as 
+                            an important deciding factor and therefore reviews figure 3. This student can zoom into each school's neighborhoods 
+                            to gain information on crime occurrences. We see that the Georgetown area has had 585 total crimes and Foggy Bottom, 
+                            where George Washington is located, had 104 crimes in 2020. American University Park and neighborhoods surrounding 
+                            Howard University each had 112 crimes in 2020. Based on information gained from figure 3,  Georgetown Washington 
+                            University may be more attractive to the student due to the lower count of crime in the foggy bottom neighborhood.
+                             </p>
+                        <br><br>
+                    </div>
+                </div>
+
+                <!-- figure 4 -->
+                <div class="mix general">
+                    <div class="content">
+                        <div class="recent-work">
+                            <iframe src="html_viz/heatmap_2020.html" height="700" width="1100"></iframe>
+                        </div>
+                        <h8>Figure-4: Heat Map Of Crime Counts in Washington, DC</h8>
+                        <br>
+                        <br>
+                        <p>Figure 4 is a different view of crime numbers in Washington, DC, represented by a heat map. 
+                            During the initial view, where the map is zoomed out, we gain two significant pieces of information. 
+                            1) DC has a high crime count  2) areas on the outskirts of DC that border Maryland and Virginia have 
+                            lower crime counts. This information is represented by a lighter shade of red on the outskirts and the 
+                            darker red in the skirt of the city. Once we continue to zoom in, figure 4 further visualizes streets and 
+                            areas with high crime rates. Areas with higher crime concentrations include Dupont Circle, Logan Circle, 
+                            Thomas Circle,  the intersection of N and New Hampheir, the corner of P and Wisconsin, and more.</p>
+                        <br><br>
+                    </div>
+                </div>
+
+
+               <!-- figure 5 -->
+               <div class="mix Sociology">
+                <div class="content">
+                    <div class="recent-work">
+                        <iframe src="html_viz/dc_crime_map_2020.html" height="700" width="1100"></iframe>
+                    </div>
+                    <h8>Figure-5: Washington, DC crime by Wards</h8>
+                    <br>
+                    <br>
+                    <p>The District of Columbia is divided into eight wards. Each ward has approximately 75,000 residents, each with its rich 
+                        history, vibrant neighborhoods, and a diverse population. As shown in figure 5, these wards have different 
+                        characteristics, including crime counts. Wards 2, Ward 5, and Ward 7 had the highest crime counts at 4684, 4394, 
+                        and 4194, respectively. Ward 3 significantly has the lowest crime count of 1710. Figure 5 is particularly useful 
+                        for Advisory Neighborhood Commissions.
+
+                        <br>
+
+                        Each ward is assigned  
+                        <a href="https://anc.dc.gov/page/about-ancs">George Floyd protests 
+                            in Washington DC</a>. ANCs are elected volunteers who serve two-year terms. The ANCs were established to 
+                            bridge the gap between the government and the people. There are now 40 ANCs, with each ANC area subdivided into 
+                            many smaller neighborhoods. Since only one Commissioner is elected per district, they are called Single Member 
+                            Districts (SMDs). The ANCs may also initiate recommendations for improving city services, conduct neighborhood 
+                            improvement programs, and monitor resident complaints. ANC’s are able to view figures to gain information on 
+                            crime counts in their respective wards. </p>
+                    <br><br><br><br>
+                </div>
+            </div>
+
+
+                <!-- figure 6 7-->
+            <div class="mix Sociology">
+                    <div class="content">
+                        <div class="recent-work">
+                            <h4><b>Q4: What are the most common types of crimes in Washington, DC?</b></h4>
+                            <img src="static_viz/violin.png">
+                        </div>
+                        <h8>Figure-6: Violin Plot of 2020 Crime Distributions in DC by Crime Type</h8>
+                        <br>
+                        <br>
+                        <img src="static_viz/">
+                        <h8>Figure-7: Violin Plot of Daily Crime Distribution in DC by Crime Type</h8>
+                        <br>
+                        <br>
+                        <p>The two violin graphs both show thuft, sex abuse, and robbery are the top three frequent crime types in 
+                            DC in 2020, whereas the arson and assault with dangerous weapon are the least frequent crime types both 
+                            daily and yearly. </p>
+                        <br><br><br><br>
+                    </div>
+            </div>
+
+                <!-- figure 8 -->
+                <div class="mix Sociology">
+                    <div class="content">
+                        <div class="recent-work">
+                            <img src="static_viz/wordcloud_crime.jpg">
+                        </div>
+                        <h8>Figure-8: Wordcloud Crime Incidents</h8>
+                        <br>
+                        <br>
+                        <p>We wanted to know the most frequent crime types in 2020 by visualizing the incident names using wordcloud. 
+                            Given the definition of violent crime by <a href="https://nij.ojp.gov/topics/crimes/violent-crime"> Natoinal Institute of Justice</a>
+                             that “a violent crime include rape, and sexual assault, robbery, assault and murder”,  we found that lots of words in our wordcloud visualization 
+                            are under the category of <b>violent crimes</b>.  
+
+                            <br>
+
+                            Violent crimes are harmful for the health and wellbeing of people. Survivors of violent crime endure physical 
+                            pain and suffering and may also experience mental distress and reduced quality of life. Research on post violence 
+                            consequences finds that exposure to violence can negatively affect the ability to sustain employment. Women who are 
+                            physically assaulted are significantly more likely to have unstable employment than women who do not experience 
+                            intimate partner violence (IPV; Crowne et al., 2011)
                             <br>
                             From figure 2, it is worth mentioning the spike of crime incidents in June 2020, during the 
                             <a href="https://en.wikipedia.org/wiki/George_Floyd_protests_in_Washington,_D.C.">George Floyd protests 
                                 in Washington DC</a>, when riots, protests, and acts of violence were happening for more than a month. </p>
-                        <br><br><br><br>
-                    </div>
-                </div>
-
-                <div class="mix general">
-                    <div class="content">
-                        <div class="recent-work">
-                            <img src="static_viz/violin.png">
-
-
-                        </div>
-                        <p>Figure-4: violin plot</p>
-                        <p>writeup</p>
-                        <br><br><br><br>
-                    </div>
-                </div>
-
-
-
-                <div class="col-1-2 mix general">
-                    <div class="content">
-                        <div class="recent-work">
-                            <img src="static_viz/wordcloud_crime.jpg" width="450" height="400">
-
-
-                        </div>
-                        <p>Figure-4: violin plot</p>
-                        <p>writeup</p>
                         <br><br><br><br>
                     </div>
                 </div>
@@ -473,60 +556,93 @@
 
 
                         </div>
-                        <p>Figure-4: violin plot</p>
+                        <h8>Figure-: violin plot</h8>
                         <p>writeup</p>
                         <br><br><br><br>
                     </div>
                 </div>
 
-
-                <div class="mix Geography">
-
-
-                    <iframe src="html_viz/dc_crime_map_2020.html" height="700" width="1100"></iframe>
-
-                    <p>Figure-5: wordcloud_crime</p>
-                    <p>writeup</p>
-                    <br><br><br><br>
-
-                </div>
-
-                <div class="mix Geography">
-
-
-                    <iframe src="html_viz/marker_cluster_2020.html" height="700" width="1100"></iframe>
-
-                    <p>Figure-5: wordcloud_crime</p>
-                    <p>writeup</p>
-                    <br><br><br><br>
-
-                </div>
-
-
-
+                <!-- figure 9 10-->
                 <div class="mix Sociology">
+                    <div class="content">
+                        <div class="recent-work">
+                            <h7>DC VIOLENT CRIME ANALYSIS</h7> 
+                            <h4><b>Q5: What social, economic, and political characteristics correlate with the most 
+                                common type of crime, violent crime,  in Washington, DC??</b></h4>
+                            <br>
+                            <h4><strong>&bull; Education Status</strong></h4>
+                                <iframe src="html_viz/Education_Status_Breakdown.html" height="700" width="1100"></iframe>
+                           
+                        <h8>Figure-9: Education Status Breakdown by Ward</h8>
+                        <br>
+                        <br>
+                        <iframe src="html_viz/Violent_Crime_and_Education_Status.html" height="700" width="1100"></iframe>
+                        <h8>Figure-10: Violent Crime Rate and Education Status per Ward</h8>
+                        <br>
+                        <br>
+                        <p>writeup</p>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    </div>
+            </div>
 
-
-                    <iframe src="html_viz/Education_Status_Breakdown.html" height="700" width="1100"></iframe>
-
-                    <p>Figure-5: wordcloud_crime</p>
-                    <p>writeup</p>
-                    <br><br><br><br>
-
-                </div>
-
-
-
+            <!-- figure 11 -->
                 <div class="mix Sociology">
+                    <div class="content">
+                        <div class="recent-work">
+                            <br>
+                            <h4><strong>&bull; Housing Characteristics</strong></h4>
+                        <iframe src="html_viz/housing.html" height="700" width="1100"></iframe>
+                        <h8>Figure-11: Violent Crime Rate and Education Status per Ward</h8>
+                        <br>
+                        <br>
+                        <p>writeup</p>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    </div>
+            </div>
 
-
-                    <iframe src="html_viz/housing.html" height="700" width="1100"></iframe>
-
-                    <p>Figure-10: Housing Conditions in DC</p>
+            <!-- figure 12 -->
+            <div class="mix Sociology">
+                <div class="content">
+                    <div class="recent-work">
+                        <br>
+                        <h4><strong>&bull; Economics Characteristics</strong></h4>
+                    <iframe src="html_viz/dc_income_fig.html" height="700" width="1100"></iframe>
+                    <h8>Figure-12: Mean and Median Income per Ward</h8>
+                    <br>
+                    <br>
                     <p>writeup</p>
-                    <br><br><br><br>
-
+                    <br>
+                    <br>
+                    <br>
                 </div>
+                </div>
+        </div>
+
+
+            <!-- figure 1X -->
+            <div class="mix Sociology">
+                <div class="content">
+                    <div class="recent-work">
+                        <br>
+                        <h4><strong>&bull; Racial Characteristics</strong></h4>
+                    <iframe src="html_viz/dc_income_fig.html" height="700" width="1100"></iframe>
+                    <h8>Figure-1X: title </h8>
+                    <br>
+                    <br>
+                    <p>writeup</p>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                </div>
+        </div>
+
 
 
                 <div class="col-1-3 mix illustration">

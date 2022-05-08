@@ -79,11 +79,11 @@ p {
   font-size: 1.1em;
  }
 
-h1,h2,h3,h4,h5,h6,h7 .navigation a, .btn, .filters .filter {
+h1,h2,h3,h4,h5,h6,h7,h8 .navigation a, .btn, .filters .filter {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6,h7 {
+h1,h2,h3,h4,h5,h6,h7,h8 {
   position: relative;
   margin: 1.4em 0 1em;
   color: #484f58;
@@ -116,6 +116,11 @@ h4,h5,h6 {
 h7 {
   font-size: 1.6em;
   line-height: 1.2em;
+}
+
+h8 {
+  font-size: .8em;
+  line-height: .9em;
 }
 
 blockquote {
