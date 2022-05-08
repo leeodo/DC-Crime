@@ -23,6 +23,7 @@ dc_gpd = gpd.read_file("Wards_from_2012.geojson")  # ward boundaries
 # Merge the two dataframes
 gdf = dc_gpd.merge(df, on="WARD", how="left").fillna(0)
 gdf["crime_rate"] = gdf["num_crimes_ward_2020"] / gdf["POP_2011_2015"]
+gdf["Violent Crime Per 100,000"] = round(gdf["crime_rate"] * 100000, 0)
 
 # %%
 # Mugleing the df1 for 2020 crime type summary
@@ -59,6 +60,7 @@ gdf1 = dc_gpd.merge(dc_violent, on="WARD", how="left").fillna(0)
 
 gdf1["violent_num"] = gdf1.iloc[:, -6:].sum(axis=1)
 gdf1["violent_rate"] = round(gdf1["violent_num"] / gdf1["POP_2011_2015"], 5)
+gdf1["Violent Crime Per 100,000"] = gdf1["violent_rate"] * 100000
 
 dc_violent["violent_num"] = gdf1["violent_num"].copy()
 dc_violent["violent_rate"] = gdf1["violent_rate"].copy()
@@ -81,7 +83,7 @@ colormap = folium.LinearColormap(
 )
 
 folium.GeoJson(
-    gdf[["geometry", "WARD", variable, "crime_rate"]],
+    gdf[["geometry", "WARD", variable, "Violent Crime Per 100,000"]],
     name="DC Crime Map 2020",
     style_function=lambda x: {
         "weight": 2,
@@ -95,9 +97,9 @@ folium.GeoJson(
         fields=[
             "WARD",
             variable,
-            "crime_rate",
+            "Violent Crime Per 100,000",
         ],
-        aliases=["WARD", "Total Crimes 2020", "Crime Rate 2020"],
+        aliases=["WARD", "Total Crimes 2020", "Violent Crime Per 100,000"],
         labels=True,
         sticky=True,
         toLocaleString=True,
