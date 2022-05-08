@@ -13,7 +13,7 @@ library(gganimate) #for animating your plot
 library(scales)
 library(animation)
 
-dc_demograph <- read.csv("/Volumes/GoogleDrive/My Drive/project-spring-2022-projectgroup33/Data/Demographic Characteristics of DC Wards.csv")
+dc_demograph <- read.csv("Data/Demographic Characteristics of DC Wards.csv")
 names(dc_demograph) <- to_snake_case(names(dc_demograph))
 str(dc_demograph)
 
@@ -83,7 +83,7 @@ head(race_df$housing_per_person)
 
 
 #merge datasets 
-violent_crime_df <- read_csv("/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/DC/num_violentcrimes_ward_2020.csv")
+violent_crime_df <- read_csv("data/num_violentcrimes_ward_2020.csv")
 names(violent_crime_df) <- to_snake_case(names(violent_crime_df))
 violent_crime_df <- violent_crime_df  %>% rename("vcrime_count"="count") 
 View(violent_crime_df)
@@ -98,7 +98,7 @@ violent_crime_race$shareof_popunder18 <- violent_crime_race$pop_under18 /violent
 View(violent_crime_race)
 esquisser(violent_crime_race)
 
-write_csv(violent_crime_race,"/Volumes/GoogleDrive/My Drive/ANLY 503 Project group/data/violent_crime_race")
+write_csv(violent_crime_race,"data/violent_crime_race")
 
 
 
