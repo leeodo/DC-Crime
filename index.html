@@ -405,16 +405,20 @@
                         <div class="recent-work">
 
                             <h7>DC CRIMES CONDITION </h7>
-                            <h4><b>Q2: How does DC’s crime rates change in the past?</b></h4>
+                            <h4><b>Q2: How does DC’s number of crime incidents change in recent years? </b></h4>
 
                             <img src="static_viz/dc_2014_2022.png">
                         </div>
-                        <h8>Figure-2: Time Series Line Graph</h8>
+                        <h8>Figure-2: Crime Incidents in DC Wards 2014-2022</h8>
                         <br>
-                            <h8>Method: This is a multiple line plot with animated lines based on the DC crimes in recent years. 
+                            <h8>Method: This is a time series line graph with animated lines based on the DC crimes in recent years. 
                                 Each line represents a ward and for visual clarity, a more colorful palette is used so the lines are
-                            more distinguishable for comparisons even when in the overlap. Due to Github file size limit, the original html could not either 
-                            be pushed or hyperlinked and we only show a screenshot of it here. If interested, you can generate the original Figure-2 using
+                            more distinguishable for comparisons even when in the overlap. It successfully shows the trend of number of crimes in different 
+                            wards over the years and provides some insights, which will be discussed below, e.g. which wards have more crimes than others? It 
+                            offers a button to switch between linear and log metrics for easier and more intuitive comparisons between the lines.
+                        <br>
+                            Due to file size limit of Github, the original html could neither 
+                            be pushed nor hyperlinked and we only show a screenshot of it here. If interested, you can generate the original Figure-2 using
                             dc_2014_2022.py in our root repo. 
 
                             </h8>
@@ -425,13 +429,13 @@
                             throughout the time,
                             we decided to take a closer look at only DC’s crime rates. From a holistic approach, we
                             plotted the time series
-                            line plot of crime incidents in DC by ward from 2014 to 2021. As shown in figure 2, Ward 2
+                            line plot of crime incidents in DC by ward from 2014 to 2021. As shown in Figure-2, Ward 2
                             has been on the top of
                             the ling graph throughout the years, which means Ward 2 has the highest crime incidents in
                             DC, whereas Ward 3 has
                             the lowest crime incidents in DC.
                             <br>
-                            From figure 2, it is worth mentioning the spike of crime incidents in June 2020, during the
+                            From Figure-2, it is worth mentioning the spike of crime incidents in June 2020, during the
                             <a href="https://en.wikipedia.org/wiki/George_Floyd_protests_in_Washington,_D.C.">George
                                 Floyd protests
                                 in Washington DC</a>, when riots, protests, and acts of violence were happening for more
@@ -620,14 +624,38 @@
                 </div>
 
                 <!-- figure 8 -->
-                <div class="mix general">
+                <div class="col-1-2 mix general">
                     <div class="content">
                         <div class="recent-work">
-                            <img src="static_viz/wordcloud_crime.jpg">
+                            <img src="static_viz/wordcloud_crime.jpg" width="450" height="400">
                         </div>
-                        <h8>Figure-8: Wordcloud Crime Incidents</h8>
+                        <h8>Figure-8: Wordcloud Crime Types</h8>
                         <br>
                         <br>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-1-2 mix general">
+                    <div class="content">
+                        <div class="recent-work">
+                            <img src="static_viz/wordcloud_ward.jpg" width="450" height="400">
+
+                        </div>
+                        <h8>Figure-8: Wordcloud DC Wards</h8>
+                        <p>Figure 8 means the bigger the size of the word is, the more crimes happended in that area. Therefore, we know that
+                            ward 5 and ward 7 have the most crime incidents in DC in 2020.
+                        </p>
+                        <br>
+                    </div>
+                </div>
+
+
+                <div class="mix general">
+                    <div class="content">
                         <p>We wanted to know the most frequent crime types in 2020 by visualizing the incident names
                             using wordcloud.
                             Given the definition of violent crime by <a
@@ -654,20 +682,7 @@
                                 Floyd protests
                                 in Washington DC</a>, when riots, protests, and acts of violence were happening for more
                             than a month.
-                        </p>
-                        <br><br><br><br>
-                    </div>
-                </div>
 
-
-
-
-                <div class="col-1-2 mix general">
-                    <div class="content">
-                        <div class="recent-work">
-                            <img src="static_viz/wordcloud_ward.jpg" width="450" height="400">
-
-                        </div>
                         <h8>Figure-8: Wordcloud DC Wards</h8>
                         <p>Figure 8 means the bigger the size of the word is, the more crimes happended in that area. Therefore, we know that
                             ward 5 and ward 7 have the most crime incidents in DC in 2020.
@@ -676,6 +691,8 @@
                     </div>
                 </div>
 
+
+            
                 <!-- figure 9 10-->
                 <div class="mix Sociology">
                     <div class="content">
