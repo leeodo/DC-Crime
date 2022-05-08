@@ -1,2 +1,4 @@
 .vscode
 /data*
+/.DS_Store
+/html_viz/.DS_Store

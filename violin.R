@@ -9,7 +9,7 @@ df <- read_csv("data/dc_num_crimes_ward_type.csv")
 
 
   df %>%
-  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2021-01-01" ) %>%
+  filter(REPORT_DAT >= "2020-01-01" & REPORT_DAT <= "2021-01-01") %>%
   ggplot() +
   aes(y = `offense-text`, x = REPORT_DAT, fill = `offense-text`, color = `offense-text`) +
   geom_violin(adjust = .001, scale = "width") +
@@ -23,18 +23,26 @@ df <- read_csv("data/dc_num_crimes_ward_type.csv")
   ) +
   theme_tufte() +
   theme(
-    plot.title = element_text(size = 17L, face = "bold", hjust = .5),
+    plot.title = element_text(size = 16L, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 15L, face = "italic", hjust = 0.5),
+    plot.caption = element_text(size = 14L),
     axis.title.y = element_text(size = 13L, face = "bold"),
-    axis.title.x = element_text(size = 13L, face = "bold")
-  )
+    axis.title.x = element_text(size = 13L, face = "bold"),
+    axis.text.x = element_text(face = "bold", size = 11L),
+    axis.text.y = element_text(face = "bold", size = 11L),
+    legend.text = element_text(size = 11L)
+  ) +
+  theme(strip.text.x = element_text(size = 11L, face = "bold")) +
+  theme(strip.text.y = element_text(size = 11L))
+
 
 
 vis
 
-#& num_crimes_ward_type <= 20
-#scale_y_continuous(breaks = seq(1, 20, 1), limits = c(1, 20)) +
+# & num_crimes_ward_type <= 20
+# scale_y_continuous(breaks = seq(1, 20, 1), limits = c(1, 20)) +
 
-#vis <-
+# vis <-
 #  ggplotly(
 #    p = vis,
 #    width = NULL,
