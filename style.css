@@ -518,7 +518,11 @@ blockquote p {
 }
 
 .parallax2 {
-  background-image: url('images/parallax2.jpg');
+  background-image: url('images/background2.jpeg');
+}
+
+.parallax3 {
+  background-image: url('images/background7.jpeg');
 }
 
 .parallax-section .content, .top-slider .content-header, .home-slider {
@@ -531,7 +535,11 @@ blockquote p {
 }
 
 .parallax2 .content {
-  padding: 100px 0;
+  padding: 70px 0;
+}
+
+.parallax3 .content {
+  padding: 70px 0;
 }
 
 .top-slider .content-header {
