@@ -70,7 +70,7 @@ income_fig = px.bar(
     color="statistic",
     color_discrete_map={"Mean Income": "#fdd49e", "Median Income": "#ef6548"},
     barmode="group",
-    title="Mean and Median Income per Ward",
+    title="<b>Mean and Median Income per Ward</b>",
     hover_name="statistic",
     hover_data={"statistic": False},
     labels={
@@ -83,7 +83,7 @@ income_fig.update_xaxes(
     type="category", showgrid=False, showline=True, linecolor="#000000", linewidth=1
 )
 income_fig.update_yaxes(showgrid=False, showline=True, linecolor="#000000", linewidth=1)
-income_fig.update_layout(font_family="serif", font_size=16)
+income_fig.update_layout(font_family="serif", font_size=16, title_x=0.5)
 income_fig.write_html("html_viz/dc_income_fig.html")
 
 
@@ -96,7 +96,7 @@ unemployment_fig = px.bar(
     color="statistic",
     color_discrete_map={"Unemployment Rate": "#ef6548"},
     barmode="group",
-    title="Unemployment Rate per Ward",
+    title="<b>Unemployment Rate per Ward</b>",
     hover_name="statistic",
     hover_data={"statistic": False},
     labels={
@@ -111,7 +111,7 @@ unemployment_fig.update_xaxes(
 unemployment_fig.update_yaxes(
     showgrid=False, showline=True, linecolor="#000000", linewidth=1
 )
-unemployment_fig.update_layout(font_family="serif", font_size=16)
+unemployment_fig.update_layout(font_family="serif", font_size=16, title_x=0.5)
 unemployment_fig.write_html("html_viz/dc_unemployment_fig.html")
 
 # %%
@@ -123,7 +123,7 @@ violent_crime_per_100K_fig = px.bar(
     color="statistic",
     color_discrete_map={"Crime Per 100K": "#ef6548"},
     barmode="group",
-    title="Crime Per 100K per Ward",
+    title="<b>Crime Per 100K per Ward</b>",
     hover_name="statistic",
     hover_data={"statistic": False},
     labels={
@@ -145,5 +145,5 @@ violent_crime_per_100K_fig.update_yaxes(
     linecolor="#000000",
     linewidth=1,
 )
-violent_crime_per_100K_fig.update_layout(font_family="serif", font_size=16)
+violent_crime_per_100K_fig.update_layout(font_family="serif", font_size=16, title_x=0.5)
 violent_crime_per_100K_fig.write_html("html_viz/dc_violent_crime_per_100K_fig.html")
