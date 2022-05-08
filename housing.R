@@ -127,16 +127,16 @@ p <-
     hovertemplate = "</br> <b>$3000 or more</b> <br> Number of Households: %{y} </br> Ward: %{x}"
   ) %>%
   layout(
-    title = list(text = "Housing Conditions in DC Wards"),
+    title = list(text = "<b> Housing Conditions in DC Wards </b>"),
     yaxis = list(
-      title = "Number of Households",
+      title = "<b> Number of Households </b>",
       showgrid = FALSE,
       showline = FALSE,
       showticklabels = TRUE,
       zeroline = FALSE
     ),
     xaxis = list(
-      title = "Wards"
+      title = "<b> Wards </b>"
     ),
     barmode = "stack"
   ) %>%

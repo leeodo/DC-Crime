@@ -32,7 +32,7 @@ w1 <- wordcloud2(
 )
 
 
-# htmlwidgets::saveWidget(w1, "wordcloud_ward.html")
+#htmlwidgets::saveWidget(w1, "html_viz/wordcloud_ward.html", selfcontained = T)
 
 
 # Second wordcloud based on crime types
