@@ -1,0 +1,8 @@
+The Following links are direct link to the data we used
+
+State Crime: https://corgis-edu.github.io/corgis/csv/state_crime/
+DC Crime: https://dcatlas.dcgis.dc.gov/crimecards/
+Demongraphic Characteristics of DC by Ward: https://opendata.dc.gov/apps/demographic-characteristics-of-dc-wards/explore
+Economic Characteristics of DC by Ward: https://opendata.dc.gov/apps/economic-characteristics-of-dc-wards/explore
+Social Characteristics of DC by Ward: https://opendata.dc.gov/apps/social-characteristics-of-dc-wards/explore
+Housing Characteristics of DC by Ward: https://opendata.dc.gov/apps/social-characteristics-of-dc-wards/explore
