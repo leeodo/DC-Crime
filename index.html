@@ -70,7 +70,7 @@
         <div class="grid grid-pad">
             <div class="col-1-1">
                 <div class="content content-header">
-                    <h2>Washington, DC Crime Analysis</h2>
+                    <h2>DC Crime Analysis</h2>
                     <p>Group 33 <br> Adiam Tesfaselassie &nbsp; Rae Zhang &nbsp; Yannian Liu &nbsp; Zhuo Pan </p>
                     <p></p>
                     <br>
@@ -94,7 +94,7 @@
             <h2>
                 <center>Abstract</center>
             </h2>
-            <p>Washington, DC has had higher violent crime rates, when compared neighboring states Maryland and
+            <p>Washington, DC has had higher violent crime rates, when compared to neighboring states, Maryland and
                 Virginia.
                 As of recently, 2021 wraps up as one of the DC region’s most violent years in ages. Crime rates in
                 Washington,
@@ -229,8 +229,8 @@
                     href="https://corgis-edu.github.io/corgis/csv/state_crime/">State Crime</a>,
                 <a href="https://dcatlas.dcgis.dc.gov/crimecards/">DC crime dataset</a>,
                 <a href="https://opendata.dc.gov/apps/demographic-characteristics-of-dc-wards/explore">demographic
-                    characteristics of DC by ward</a>
-                , <a href="https://opendata.dc.gov/apps/economic-characteristics-of-dc-wards/explore">economic
+                    characteristics of DC by ward</a>,
+                <a href="https://opendata.dc.gov/apps/economic-characteristics-of-dc-wards/explore">economic
                     characteristics of DC by ward</a>,
                 <a href="https://opendata.dc.gov/apps/social-characteristics-of-dc-wards/explore">social characteristics
                     of DC by ward</a>,
@@ -280,7 +280,7 @@
                 <li>After reading the data, the columns that are “datetime” type are converted to the corresponding
                     type. Then data is aggregated by different types of tables for later use. This includes the number
                     of crimes per day, the number of crimes per day by different types, the number of crimes per day per
-                    ward, and the number of violent crimes per ward in 2020, etc.</li>
+                    ward, the number of violent crimes per ward in 2020, etc.</li>
                 <br>
                 <li>The latest data on social characteristics are in the year 2020, thus above tables were later
                     filtered for the year 2020 only.</li>
@@ -373,7 +373,7 @@
                             <iframe src="html_viz/ViolentCrime_DMV.html" height="700" width="1050"></iframe>
                         </div>
                         <h8><b>Figure-1</b>: Crime rates in Washington, DC, Maryland, & Virginia 1960-2019</h8><br>
-                        <h8>Method: The time series plot above displays total crime rates from 1960 to 2019 in Washington, DC, Virginal and Maryland, also known as the DMV. This plot was created in R using the plotly package. Readers are able to interact with the plot by clicking on the graph to focus on particular time periods or states. The colores, red, yellow and blue are representing the main colors in Washington, DC, Maryland, and Virginia state flags.
+                        <h8>Method: The time series plot above displays total crime rates from 1960 to 2019 in Washington, DC, Virginia, and Maryland, also known as the DMV. This plot was created in R using the plotly package. Readers can interact with the plot by clicking on the graph to focus on particular time periods or states. The colors, red, yellow, and blue are representing the main colors of Washington, DC, Maryland, and Virginia state flags.
                         </h8>
                         <br>
                         <br>
@@ -416,14 +416,14 @@
                             recent years.
                             Each line represents a ward and for visual clarity, a more colorful palette is used so the
                             lines are
-                            more distinguishable for comparisons even when in the overlap. It successfully shows the
-                            trend of number of crimes in different
+                            more distinguishable for comparisons even when they overlap. It successfully shows the
+                            trend of the number of crimes in different
                             wards over the years and provides some insights, which will be discussed below, e.g. which
                             wards have more crimes than others? It
                             offers a button to switch between linear and log metrics for easier and more intuitive
                             comparisons between the lines.
                             <br>
-                            Due to file size limit of Github, the original html could neither
+                            Due to the file size limit of Github, the original HTML could neither
                             be pushed nor hyperlinked and we only show a screenshot of it here. If interested, you can
                             generate the original Figure-2 using
                             dc_2014_2022.py in our root repo.
@@ -463,7 +463,7 @@
                                     Washington, DC?
                                     How do crime rates vary across neighborhoods and different wards in the city?</b>
                             </h4>
-                            <p>The spike of crime incidents in June 2020 caught our attention, we then wondered the
+                            <p>The spike of crime incidents in June 2020 caught our attention, we then wandered about the
                                 geospatial distributions
                                 of the crimes in DC and mapped several heatmaps to answer our data science questions.
                             </p>
@@ -471,7 +471,7 @@
                             <iframe src="html_viz/marker_cluster_2020.html" height="700" width="1100"></iframe>
                         </div>
                         <h8>Figure-3: Marker Cluster 2020</h8><br>
-                        <h8>Method: This visualization is meant to show a more detailed distribution of crimes happened
+                        <h8>Method: This visualization is meant to show a more detailed distribution of crimes that happened
                             in DC.
                             This used the
                             same data as the overall crime choropleth since it contains longitude and latitude. The
@@ -487,7 +487,7 @@
                             as
                             green is low and orange is high.</h8><br>
                         <h8>Innovative: This marker cluster map replaces scatter plots on a map. A scatter plot would be
-                            sufficient if there are less dots on a map because the audience can see the density and
+                            sufficient if there are fewer dots on a map because the audience can see the density and
                             geometry information wouldn’t be blocked. The marker cluster makes the map less “busy” so
                             that the audience can see the geometry information on a map. If an audience wants to see the
                             detailed location information of each incident, an audience just needs to scroll up and the
@@ -500,7 +500,7 @@
                             27,177 crime counts,
                             respectively. When we continue to zoom in we're able to see crime counts by neighborhood and
                             even down to crime
-                            counts by streets. Using the information gained from Figure-2, individuals, businesses,and
+                            counts by streets. Using the information gained from Figure-2, individuals, businesses, and
                             city officials are able
                             to understand crime occurrences better.
 
@@ -571,7 +571,7 @@
                             wards in
                             Washington, D.C. The data was first filtered by crime type to pick out violent crimes only
                             then
-                            aggregated to the total number of crimes happened in 2020 per ward. Then the crime rate was
+                            aggregated to the total number of crimes that happened in 2020 per ward. Then the crime rate was
                             derived.
                             Lastly, the aggregated data has been merged with the geojson file. The color of each ward is
                             based on
@@ -604,7 +604,7 @@
                             called Single Member
                             Districts (SMDs). The ANCs may also initiate recommendations for improving city services,
                             conduct neighborhood
-                            improvement programs, and monitor resident complaints. ANC’s are able to view figures to
+                            improvement programs, and monitor resident complaints. ANCs can view figures to
                             gain information on
                             crime counts in their respective wards.
                         </p>
@@ -624,19 +624,19 @@
                         <h8>Figure-6: Violin Plot of 2020 Crime Distributions in DC by Crime Type</h8><br>
                         <h8>Method: This is a horizontal violin plot showing the crime distributions in DC through the year of 2020. The distributions
                             of all the crimes are essential to answer our questions.
-                            It uses the colorblind friendly palette "OrRd" which will be used throughout the project. Wider violin 
-                            represents higher frequency of crimes, and it successfully visualized the crime distributions of different types 
+                            It uses the colorblind-friendly palette "OrRd" which will be used throughout the project. Wider violin 
+                            represents a higher frequency of crimes, and it successfully visualized the crime distributions of different types 
                             of crimes. It did better than the original violin plot from the midterm release in terms of both information conveyed 
                             and aesthetics. 
                         </h8>
                         <br>
                         <br>
-                        <p>Figure-6 shows that all types of theft, assault with dangerous weapon, and robbery are the most frequent
+                        <p>Figure-6 shows that all types of theft, assault with dangerous weapons, and robbery are the most frequent
                             crime types in
-                            DC in 2020, whereas arson, homicide, and sex abuse are the least frequent crime types. In particular, theft, being 
+                            DC in 2020, whereas arson, homicide, and sexual abuse are the least frequent crime types. In particular, theft, being 
                             the most frequent crime type, occurs
-                             consistently and frequently on daily basis. Another observation is that the spike of sex abuse takes place on July,
-                            which conforms to the common sense.</p>
+                             consistently and frequently on daily basis. Another observation is that the spike in sexual abuse takes place in July,
+                            which conforms to common sense.</p>
                         <br><br><br><br>
                     </div>
                 </div>
@@ -650,7 +650,7 @@
                         <h8>Figure-7: Wordcloud Crime Types</h8><br>
                         <h8>Method: A wordcloud where the word size is positively related to the number of incidents in DC 2020.
                             Viewers would understand it instantly and know which types of crimes are prevalent or serious
-                            in DC. It was created as an html using wordcloud2 where the tooltip shows the number of incidents of that crime type.
+                            in DC. It was created as an HTML using wordcloud2 where the tooltip shows the number of incidents of that crime type.
                              Only a static image
                             is used here due to rendering issues of Chrome. 
                         </h8>
@@ -672,7 +672,7 @@
                         <h8>Figure-8: Wordcloud DC Wards</h8><br>
                         <h8>Method: A wordcloud where the word size is positively related to the number of incidents in DC 2020.
                             Viewers would understand it instantly and know which wards in DC are dangerous and which are safer. 
-                            It was created as an html using wordcloud2 where the tooltip shows the number of incidents in that ward.
+                            It was created as an HTML using wordcloud2 where the tooltip shows the number of incidents in that ward.
                              Only a static image
                             is used here due to rendering issues of Chrome. 
 
@@ -689,15 +689,15 @@
                             We wanted to provide our audience a more direct and intuitive idea about the general crime 
                             conditions in DC, with the help of two wordclouds, featuring the crime types and wards respectively. <br>
                             Given the definition of violent crime by <a
-                                href="https://nij.ojp.gov/topics/crimes/violent-crime"> Natoinal Institute of
+                                href="https://nij.ojp.gov/topics/crimes/violent-crime"> the Natoinal Institute of
                                 Justice</a>
-                            that “a violent crime include rape, and sexual assault, robbery, assault and murder”, we
+                            that “a violent crime include rape, and sexual assault, robbery, assault, and murder”, we
                             found that lots of words in our wordcloud visualization
                             are under the category of <b>violent crimes</b>.
 
                             <br>
 
-                            Violent crimes are harmful for the health and wellbeing of people. Survivors of violent
+                            Violent crimes are harmful to the health and well-being of people. Survivors of violent
                             crime endure physical
                             pain and suffering and may also experience mental distress and reduced quality of life.
                             Research on post violence
@@ -707,14 +707,14 @@
                             who do not experience
                             intimate partner violence (IPV; Crowne et al., 2011)
                             <br>
-                            From Figure-2, it is worth mentioning the spike of crime incidents in June 2020, during the
+                            From Figure-2, it is worth mentioning the spike in crime incidents in June 2020, during the
                             <a href="https://en.wikipedia.org/wiki/George_Floyd_protests_in_Washington,_D.C.">George
                                 Floyd protests
                                 in Washington DC</a>, when riots, protests, and acts of violence were happening for more
                             than a month.
 
                             <br>
-                        <p>Figure-8 means the bigger the size of the word is, the more crimes happended in that area.
+                        <p>Figure-8 means the bigger the size of the word is, the more crimes that happended in that area.
                             Therefore, we know that
                             Ward 5 and Ward 7 have the most crime incidents in DC in 2020.
                         </p>
@@ -737,10 +737,10 @@
 
                             <h8>Figure-9: Education Status Breakdown by Ward</h8><br>
                             <h8>
-                                Method: This side by side bar graph is made by ggplot and ggplotly package after properly
+                                Method: This side-by-side bar graph is made by ggplot and ggplotly package after properly
                                 wrangling the social
                                 characteristic data and dc crime data in 2020.
-                                The deeper colour in the bar graph means the higher education level, and vice
+                                The deeper color in the bar graph means the higher education level and vice
                                 versa. The purpose of
                                 using a stacked bar plot is to give our audience an overview idea of the breakdown of
                                 education
@@ -755,19 +755,19 @@
                             <h8>Figure-10: Violent Crime Rate and Education Status per Ward</h8> <br>
                             <h8>
 
-                                Method: This side by side bar graph is made by ggplot and ggplotly package after properly
+                                Method: This side-by-side bar graph is made by ggplot and ggplotly package after properly
                                 wrangling the social
                                 characteristic data and dc crime data in 2020.
 
-                                The tooltip function allows the audience have a clear idea of the education
+                                The tooltip function allows the audience to have a clear idea of the education
                                 status and violent crime rate
                                 in each ward.
 
                                 The calculation of ‘No High School Degree’ is using the total population of each ward to
                                 subtract the
-                                population of high school degree and higher and times 100 to get the percentage rate of
-                                who do not have
-                                high school diploma among each ward.
+                                population with a high school degree and higher and times 100 to get the percentage rate of
+                                those who do not have a
+                                high school diploma in each ward.
 
                             </h8>
 
@@ -775,20 +775,18 @@
                             <br>
 
                             <p> From Figure-9 and Figure-10, we know that Ward 6 and Ward 3 are the top two areas that
-                                have the largest among of
-                                population holding high school or above diploma, and Ward 3 has the most population of
-                                graduate degree
-                                or higher education, which means Ward 3 has the most high educated people in DC.
+                                have the largest population holding high school or above diploma, and Ward 3 has the most population with
+                                a graduate degree
+                                or higher education, which means Ward 3 has the most highly educated people in DC.
 
                                 <br>
 
                                 After getting ourselves familiar with the education status in DC in 2020, we compared
                                 the low educated
-                                population with violent crime rates in each ward. We found out Ward 7 and 8 have the
-                                most violent crime
-                                rates per 1,000 long so as the rates of low educated population. Ward 3 has the lowest
+                                population with violent crime rates in each ward. We found out Ward 7 and 8 have the most violent crime rates 
+                                per 1,000 as well as the highest rates of low educated population. Ward 3 has the lowest
                                 violent crime rate
-                                and the second lowest low educated population.
+                                and the second-lowest low educated population.
                             </p>
                             <br>
 
@@ -822,8 +820,8 @@
                             
                             <p>Now, let's take a look at the housing conditions in DC. In any ward, only a few households have more than 3 bedrooms. 
                                 But in particular, Ward 2, being the most dangerous ward in DC in terms of crime incidents,
-                                 has both the largest number and largest fraction of households having 0 or 1 bedroom. Ward 2 also has high fraction of people
-                                 paying rent over $2000. However, when it comes to the rent/income percentage, all the wards share similar structure. Based on 
+                                 has both the largest number and largest fraction of households having 0 or 1 bedroom. Ward 2 also has a high fraction of people
+                                 paying rent over $2000. However, when it comes to the rent/income percentage, all the wards share a similar structure. Based on 
                                  the plot, we could find some traces of correlation between housing conditions and crime incidents but it's far from drawing some 
                                  valid conclusions.
                             </p>
@@ -842,8 +840,8 @@
                             <h4><strong>&bull; Economics Characteristics</strong></h4>
                             <iframe src="html_viz/dc_income_fig.html" height="700" width="1100"></iframe>
                             <h8>Figure-12: Mean and Median Income per Ward</h8><br>
-                            <h8>Method: This is a side-by-side barplot comparing the mean and median income of each
-                                ward. Each ward has two barplot that sticks together so that the audience can easily
+                            <h8>Method: This is a side-by-side bar plot comparing the mean and median income of each
+                                ward. Each ward has two bar plots that stick together so that the audience can easily
                                 identify the corresponding ward. This plot also has a hover function which will show the
                                 exact value of each bar.</h8>
                             <br>
@@ -866,7 +864,7 @@
                             <br>
                             <iframe src="html_viz/dc_unemployment_crime.html" height="700" width="1100"></iframe>
                             <h8>Figure-13: DC Unemployment and Violent Crime </h8><br>
-                            <h8>Method: This is a side-by-side barplot using subplots in plotly comparing the
+                            <h8>Method: This is a side-by-side bar plot using subplots in plotly comparing the
                                 Unemployment and crime of each
                                 ward. This plot also has a hover function which will show the
                                 exact value of each bar.
@@ -874,10 +872,10 @@
                             <br>
                             <br>
                             <p>The bar plot on the left of Figure-13 shows Ward 8 has the highest unemployment rate in DC in 2020, 
-                                and the bar plot on the right shows Ward 8 also has the hightest violent crimes among other wards in DC.
+                                and the bar plot on the right shows Ward 8 also has the highest violent crimes among other wards in DC.
 
                             <br>
-                                The lowest uneomployment rate in DC is in Ward 2, whereas the lowest violent crime incidents in DC is in Ward 4. 
+                                The lowest unemployment rate in DC is in Ward 2, whereas the lowest violent crime incidents in DC is in Ward 4. 
                                 </p>
                         </div>
                     </div>
@@ -890,13 +888,13 @@
                             <h4><strong>&bull; Racial Characteristics</strong></h4>
                             <iframe src="html_viz/linked_race and crime.html" height="600" width="1100"></iframe>
                             <h8>Figure-14: Violent Crime Rate by Demographic</h8><br>
-                            <h8>Method: This linked interactive scatter plot is made by plotly in Rstudio. There are two scatter plots,one looking at the relationship between share of Black violent crime rate and another scatter plot looking at the relationship between share of White and violent crime rates. We thought linking the two graphs is a great opportunity to display racial differences for crime occurrences.  </h8>
+                            <h8>Method: This linked interactive scatter plot is made by plotly in Rstudio. There are two scatter plots, one looking at the relationship between the share of the Black violent crime rate and another scatter plot looking at the relationship between the share of White and violent crime rates. We thought linking the two graphs is a great opportunity to display racial differences in crime occurrences.  </h8>
     
                             <br>
                             <br>
                             <br>
                             
-                            <p>Based on Figure-14 can see that racial demographic is an essential variable in predicting violent crime rates. The share of Black population is positively correlated with violent crime rates, while the percentage of white population is inversely correlated with violent crime rates. Based on Figure-14 and information gained from previous figures, this may mean that due to current and historical racism, Black people tend to live in areas that experience high poverty rates, high unemployment rates, and other factors that enhance violent crime rates.
+                            <p>Based on Figure-14 can see that racial demographic is an essential variable in predicting violent crime rates. The share of the Black population is positively correlated with violent crime rates, while the percentage of the white population is inversely correlated with violent crime rates. Based on Figure-14 and information gained from previous figures, this may mean that due to current and historical racism, Black people tend to live in areas that experience high poverty rates, high unemployment rates, and other factors that enhance violent crime rates.
                             </p>
 
                             <br>
@@ -917,7 +915,7 @@
                             <br>
                             <br>
                             
-                            <p>For the purpose of this project, we initially imagined looking into Viginia, Maryland and the District of Columbia(DC) simultaneously. However, after sourcing and analyzing the data, we changed our focus primarily on DC, not only because the quality of data publicly available is much higher in DC but also we can have a more focused perspective. Thus, we are able to dive deeper into the crime situation in DC by looking at multiple social characteristics other than crime solely. By focusing on DC, we had enough time to think about the stakeholders, the findings and thoughts put into can potentially be applied to other areas of the nation. We could dive even deeper into DC and the initial proposal of all three areas was unrealistic for the given amount of time in the semester.
+                            <p>For this project, we initially imagined looking into Virginia, Maryland, and the District of Columbia(DC) simultaneously. However, after sourcing and analyzing the data, we changed our focus primarily on DC, not only because the quality of data publicly available is much higher in DC but also because we can have a more focused perspective. Thus, we can dive deeper into the crime situation in DC by looking at multiple social characteristics other than crime solely. By focusing on DC, we had enough time to think about the stakeholders, the findings and thoughts put into can potentially be applied to other areas of the nation. We could dive even deeper into DC and the initial proposal for all three areas was unrealistic for the given amount of time in the semester.
                             </p>
                             <br>
                             <p>Technically, a detailed time series plot with groups of 8 wards was considered. However, the plot was over 500 Mb large and it was simply impractical. The plot is represented as a screenshot instead. A rasterized version of this plot was considered as well, but it was still too big for GitHub to accept.</p>
@@ -991,7 +989,7 @@
                 <div class="recent-work">
                     <br>
 
-                    <p>By utilizing data visualization tools, we are able to answer our initial research questions. Our visualizations indicate that Washington, DC, has a higher crime rate than neighboring states. Crime in Washington, DC varies by neighborhood and ward, and violent crimes, including rape, sexual assault, robbery, assault, and murder, are the most common crimes. We also find social and economic factors impact the occurrence of violent crime. Our key takeaways are as follows. 
+                    <p>By utilizing data visualization tools, we can answer our initial research questions. Our visualizations indicate that Washington, DC, has a higher crime rate than neighboring states. Crime in Washington, DC varies by neighborhood and ward, and violent crimes, including rape, sexual assault, robbery, assault, and murder, are the most common crimes. We also find social and economic factors impact the occurrence of violent crime. Our key takeaways are as follows. 
                     </p>
                 </div>
             </div>
@@ -1008,7 +1006,7 @@
                             <div class="quotes-icon">
                                 <i class="icon-quotes-left"></i>
                             </div>
-                            <p>As shown in Figure-3, Figure-4,and Figure-5 crime rates in DC vary by wards, neighborhoods, and streets of DC. </p>
+                            <p>As shown in Figure-3, Figure-4, and Figure-5 crime rates in DC vary by ward, neighborhood, and street of DC. </p>
                             <h4>- Takeaway 1</h4>
                         </div><!-- End of item -->
 
@@ -1017,7 +1015,7 @@
                             <div class="quotes-icon">
                                 <i class="icon-quotes-left"></i>
                             </div>
-                            <p>As shown in Figure-12, ward 3, the richest ward, has the biggest mean and median income gap. Which means that the gap between wealthy and poor is large. It also has the second lowest violent crime rate among 8 wards. Interestingly, ward 8 has the lowest mean and median income. Ward 8 also has the highest unemployment and violent crime rate. This could lead to a relationship between poverty and violent crimes.</p>
+                            <p>As shown in Figure-12, ward 3, the richest ward, has the biggest mean and median income gap. This means that the gap between wealthy and poor is large. It also has the second-lowest violent crime rate among 8 wards. Interestingly, ward 8 has the lowest mean and median income. Ward 8 also has the highest unemployment and violent crime rate. This could lead to a relationship between poverty and violent crimes.</p>
                             <h4>- Takeaway 2</h4>
                         </div><!-- End of item -->
                         <div class="item client-carousel-item">
@@ -1025,7 +1023,7 @@
                             <div class="quotes-icon">
                                 <i class="icon-quotes-left"></i>
                             </div>
-                            <p>Wards with the highest share of Black population, also have a higher share of violent crime rates. </p>
+                            <p>Wards with the highest share of the Black population, also have a higher share of violent crime rates. </p>
                             <h4>- Takeaway 3</h4>
                         </div><!-- End of item -->
                         <div class="item client-carousel-item">
@@ -1033,7 +1031,7 @@
                             <div class="quotes-icon">
                                 <i class="icon-quotes-left"></i>
                             </div>
-                            <p>Wards with lower share of people without a high school diploma have lower share of crime rates, than when compared to wards with high share of people with no high school diploma. </p>
+                            <p>Wards with a lower share of people without a high school diploma have a lower share of crime rates, than when compared to wards with a high share of people with no high school diploma. </p>
                             <h4>- Takeaway 4</h4>
                         </div><!-- End of item -->
 
@@ -1055,7 +1053,7 @@
                     <br>
                     <p>Business owners interested in the wellness of their business can use these results to prevent or reduce damages caused by crimes. For Example, if a business is located near Dupont Circle, where there are a large number of crimes, that business would now develop a proper protocol to manage the possibility of crime.</p>
                     <br>
-                    <p>While these results are insightful,  with more time, data, and resources, we believe we can expand our analysis to draw meaningful results. In the future, we hope to also analyze data on police funding, homeless population, and other variables to better provide predictive measures that business, policy makers, and community members can use. </p>
+                    <p>While these results are insightful,  with more time, data, and resources, we believe we can expand our analysis to draw meaningful results. In the future, we hope to also analyze data on police funding, the homeless population, and other variables to better provide predictive measures that businesses, policymakers, and community members can use. </p>
 
                 </div>
             </div>
@@ -1099,9 +1097,9 @@
             <br>
             <p>We asked four questions to investigate crime rates in Washington, DC. 1) What do crime rates look like in Washington, DC when compared to neighboring states Maryland and Virginia throughout time? 2) What are the crime rates in Washington, DC? How do crime rates vary across neighborhoods and different wards in the city? 3) What are the most common types of crimes in Washington, DC? 4) What social, economic, and political characteristics correlate with the most common type of crime in Washington, DC?</p>
             <br>
-            <p>We created a series of visualizations to answer these questions. We find that 1) crime rates in DC vary by wards, neighborhoods, and streets of DC. 2) the highest unemployment and violent crime rate. 3) Wards with the highest share of Black population, also have a higher share of violent crime rates. 4) Wards with lower share of people without a high school diploma have lower share of crime rates.</p>
+            <p>We created a series of visualizations to answer these questions. We find that 1) crime rates in DC vary by ward, neighborhood, and street of DC. 2) the highest unemployment and violent crime rate. 3) Wards with the highest share of the Black population, also have a higher share of violent crime rates. 4) Wards with a lower share of people without a high school diploma have a lower share of crime rates.</p>
             <br>
-            <p>These results are insightful for businesses, policy makers, and community members.  With more time, data, and resources, we believe we can expand our analysis to draw meaningful results. In the future, we hope to also analyze data on police funding, homeless population, and other variables to better provide predictive measures that our stakeholders can use.</p>
+            <p>These results are insightful for businesses, policymakers, and community members.  With more time, data, and resources, we believe we can expand our analysis to draw meaningful results. In the future, we hope to also analyze data on police funding, homeless population, and other variables to better provide predictive measures that our stakeholders can use.</p>
 
         </div>
     </div>
@@ -1125,9 +1123,9 @@
                         <h2>
                             <center>Contact</center>
                         </h2>
-                        <p class="source-org copyright">zp96@georgetown.edu</a></p>
-                        <p class="source-org copyright">zp96@georgetown.edu</a></p>
-                        <p class="source-org copyright">zp96@georgetown.edu</a></p>
+                        <p class="source-org copyright">at1296@georgetown.edu</a></p>
+                        <p class="source-org copyright">yl1356@georgetown.edu</a></p>
+                        <p class="source-org copyright">yz961</p>@georgetown.edu</a></p>
                         <p class="source-org copyright">zp96@georgetown.edu</a></p>
                     </div>
                 </div>
