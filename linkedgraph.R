@@ -69,5 +69,7 @@ annotations <- list(
     showarrow = FALSE
   )
 )
-fig <- vcrime_byrace %>% layout(annotations = annotations)
+fig <- vcrime_byrace %>% layout(annotations = annotations) 
+fig <- fig %>% layout(showlegend = FALSE)
+fig
 htmlwidgets::saveWidget(as_widget(fig), "html_viz/linked_race and crime.html")
