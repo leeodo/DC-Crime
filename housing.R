@@ -133,10 +133,16 @@ p <-
       showgrid = FALSE,
       showline = FALSE,
       showticklabels = TRUE,
-      zeroline = FALSE
+      zeroline = FALSE,
+      linewidth=1
     ),
     xaxis = list(
-      title = "<b> Wards </b>"
+      title = "<b> Wards </b>",
+      showgrid = FALSE,
+      showline = FALSE,
+      showticklabels = TRUE,
+      zeroline = FALSE,
+      linewidth=1
     ),
     barmode = "stack"
   ) %>%
